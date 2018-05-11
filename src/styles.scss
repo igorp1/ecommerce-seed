@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+@import url('https://fonts.googleapis.com/css?family=Julius+Sans+One');
+
+$special-font: 'Julius Sans One', sans-serif;
+$regular-font: 'Quicksand', sans-serif;
+
+h1, h2, h3{
+    font-family: $special-font;
+}
