@@ -4,6 +4,12 @@
 $special-font: 'Julius Sans One', sans-serif;
 $regular-font: 'Quicksand', sans-serif;
 
+
+body{
+    font-family: $regular-font;
+}
+
 h1, h2, h3{
     font-family: $special-font;
 }
+

@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
 
 import { PLATFORM_ID, APP_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { HttpModule } from '@angular/http';
 
 import { RoutingModule } from './app-routing.module';
 
@@ -16,7 +17,9 @@ import { ComponentsModule } from './components/components.module';
     AppComponent
   ],
   imports: [
+    HttpModule,
     BrowserModule.withServerTransition({appId: 'ecommerce-seed'}),
+    BrowserTransferStateModule,
     RoutingModule,
     PagesModule,
     ComponentsModule
