@@ -1,6 +1,11 @@
-<div class="modal-container">
-  <div class="modal" [class]=" 'modal '+modalClass ">
-    This is a modal
+<div class="modal-container" *ngIf="isOpen">
+  <div class="modal float" [class.text-left]='config.alignLeft'  >
+    <div>
+      <h3 *ngIf='config.title'>{{config.title}}</h3>
+      <p>{{config.message}}</p>
+      <button *ngIf='config.confirmBtnLabel' (click)='confirmExit()' >{{config.confirmBtnLabel}}</button>
+      <button *ngIf='config.cancelBtnLabel' (click)='cancelExit()' >{{config.cancelBtnLabel}}</button>
+    </div>
   </div>
   <div class="modal-background"></div>
 </div>

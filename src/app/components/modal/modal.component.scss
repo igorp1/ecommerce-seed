@@ -17,9 +17,10 @@
 .modal{
     z-index: 9999;
     left: 50%;
-    transform: translate(-50%,0%);
     position: fixed;
+    transform: translate(-50%,0%);
 
+    text-align: center;
     padding: 1.25em;
     border-radius: .175em;
     border: solid 1px black;
@@ -32,3 +33,6 @@
     background-color: white; 
 }
 
+.text-left{
+    text-align: left;
+}

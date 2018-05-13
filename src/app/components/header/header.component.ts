@@ -15,7 +15,9 @@ export class HeaderComponent implements OnInit {
 
   isBrowser : boolean;
 
-  logo : string = "https://vectr.com/idp/f3RoW0TgGR.svg?width=640&height=640&select=f3RoW0TgGRpage0";
+  // config
+  logo : string = "assets/whitelabel-logo.png";
+  siteTitle : string = "e-commerce seed" 
 
   constructor(
     @Inject(PLATFORM_ID) private  platformId : Object

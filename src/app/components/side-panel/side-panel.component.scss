@@ -1,0 +1,17 @@
+@import '../../../styles.scss';
+
+$panel-width : 400px;
+
+.side-panel{
+    position: fixed;
+    left: -$panel-width ;
+    top: 0;
+    height: 100vh;
+    width: $panel-width ;
+    background-color: plum
+}
+
+.open{
+    left: 0;
+    transition: $transition;
+}
