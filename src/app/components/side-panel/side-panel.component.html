@@ -1,3 +1,20 @@
 <div class="side-panel" [class.open]='open'>
-Hello
+    <div class='menu-content'>
+        <div class="menu-title">
+            <h3>Title</h3>
+        </div>
+        <ul class="menu-item-list">
+            <li>thing 1</li>
+            <li>thing 2
+                <ul class="menu-subitem-list">
+                    <li> sub thing 1 </li>
+                    <li> sub thing 2 </li>
+                </ul>
+            </li>
+            <li>thing 3</li>
+        </ul>
+        <div class='bottom'>
+            menu footer
+        </div>
+    </div>
 </div>

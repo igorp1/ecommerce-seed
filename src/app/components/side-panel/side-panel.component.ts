@@ -14,7 +14,7 @@ export class SidePanelComponent implements OnInit {
   ngOnInit() {
     setTimeout(()=>{
       this.open = true
-    }, 3000)
+    }, 1000)
 
   }
 

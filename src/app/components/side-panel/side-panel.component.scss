@@ -1,14 +1,67 @@
 @import '../../../styles.scss';
 
 $panel-width : 400px;
+$left-border-weight : 2px;
 
 .side-panel{
-    position: fixed;
-    left: -$panel-width ;
     top: 0;
     height: 100vh;
+    position: fixed;
     width: $panel-width ;
-    background-color: plum
+    left: -$panel-width - $left-border-weight ;
+    background-color: $color-offlight;
+    box-shadow: $shadow-m;
+    border-right: solid $color-light $left-border-weight;
+
+    & .menu-content{
+        padding-top: 1em;
+
+        & .menu-title{
+            padding-left: 1em;
+        }
+
+        & ul.menu-item-list{
+
+            list-style: none;
+            margin:0;
+            padding:0;
+
+            & li{
+                margin: .5em 0;
+                padding: .75em 1em;
+                cursor: pointer;
+                transition: $transition;
+            
+                &:hover{
+                    background-color: $color-light;
+                }
+
+                &:active{
+                    box-shadow : $shadow-l;
+                }
+            
+            }
+
+        }
+
+        & ul.menu-subitem-list{
+            list-style: none;
+            margin:0;
+            padding:0;
+        }
+
+
+        & .bottom{
+            position: absolute;
+            bottom: .5em;
+            width: calc(100% - 2em);
+            text-align: center;
+        }
+
+
+    }
+
+
 }
 
 .open{
