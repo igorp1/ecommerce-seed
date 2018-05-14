@@ -1,17 +1,33 @@
 <div class="side-panel" [class.open]='open'>
     <div class='menu-content'>
+        <span class="close-menu" (click)="open = false">&#x2715;</span>
         <div class="menu-title">
             <h3>Title</h3>
         </div>
         <ul class="menu-item-list">
-            <li>thing 1</li>
-            <li>thing 2
-                <ul class="menu-subitem-list">
-                    <li> sub thing 1 </li>
-                    <li> sub thing 2 </li>
+            <ng-container *ngFor="let menuItem of menuItems">
+                <li (click)="menuItem.subMenuExpanded = !menuItem.subMenuExpanded; menuItem.action()"  > 
+                    <!-- (click)="menuItem.action()" -->
+                    <span
+                        class="subMenuArrow"
+                        [class.rotate]="menuItem.subMenuExpanded" 
+                        *ngIf="menuItem.subMenu"
+                    >&#x25b6;</span> 
+                    {{menuItem.label}} 
+                    <!-- <span
+                        class="subMenuArrow"
+                        [class.antirotate]="menuItem.subMenuExpanded" 
+                        *ngIf="menuItem.subMenu"
+                    >&#x25c0;</span>  -->
+                </li>
+                <ul class="menu-subitem-list" *ngIf="menuItem.subMenu" [class.collapsed]='!menuItem.subMenuExpanded' >
+                    <li *ngFor="let subMenuItem of menuItem.subMenu"
+                        (click)="subMenuItem.action()"
+                    >
+                        {{subMenuItem.label}}
+                    </li>
                 </ul>
-            </li>
-            <li>thing 3</li>
+            </ng-container>
         </ul>
         <div class='bottom'>
             menu footer

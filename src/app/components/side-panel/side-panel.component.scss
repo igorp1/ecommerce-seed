@@ -8,10 +8,17 @@ $left-border-weight : 2px;
     height: 100vh;
     position: fixed;
     width: $panel-width ;
-    left: -$panel-width - $left-border-weight ;
-    background-color: $color-offlight;
     box-shadow: $shadow-m;
+    transition: $transition;
+    background-color: $color-offlight;
+    left: -$panel-width - $left-border-weight;
     border-right: solid $color-light $left-border-weight;
+
+    & span.close-menu{
+        float: right;
+        margin-right: 1em;
+        cursor: pointer;
+    }
 
     & .menu-content{
         padding-top: 1em;
@@ -39,15 +46,49 @@ $left-border-weight : 2px;
                 &:active{
                     box-shadow : $shadow-l;
                 }
+
+                span.subMenuArrow{
+                    font-size: .5em;
+                    display: inline-block;
+                    transition: $transition;
+                    vertical-align: middle;
+                }
+
+                span.antirotate{
+                    transform: rotate(-90deg);
+                    -webkit-transform: rotate(-90deg);
+                    -moz-transform: rotate(-90deg);
+                    -ms-transform: rotate(-90deg);
+                    -o-transform: rotate(-90deg);
+                }
+
+                span.rotate{
+                    transform: rotate(90deg);
+                    -webkit-transform: rotate(90deg);
+                    -moz-transform: rotate(90deg);
+                    -ms-transform: rotate(90deg);
+                    -o-transform: rotate(90deg);
+                }
             
             }
 
         }
 
         & ul.menu-subitem-list{
+            background-color: darken($color-offlight, 10);
             list-style: none;
-            margin:0;
             padding:0;
+            margin:0;
+            margin-top: -0.5em;
+
+            li{
+                padding-left:2em;
+            }
+
+            &.collapsed{
+                font-size:0;
+            }
+
         }
 
 
@@ -61,10 +102,10 @@ $left-border-weight : 2px;
 
     }
 
+    &.open{
+        left: 0;
+    }
 
 }
 
-.open{
-    left: 0;
-    transition: $transition;
-}
+
