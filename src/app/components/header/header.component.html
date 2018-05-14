@@ -1,13 +1,20 @@
 <div class="header" [class.closed]="headerCollapsed" >
 
-  <div (click)="openMenu()">MENU</div>
+  <div>
+      <div class="action-container">
+          <div class="header-action" (click)="openMenu()">MENU</div>
+          <div class="header-action" (click)="openMenu()">HELLO</div>
+          <div class="header-action" (click)="openMenu()">YO</div>
+      </div>
+  </div>
 
   <div>
     <img src="{{logo}}">
     <h1>{{siteTitle}}</h1>
   </div>
 
-  <div>ACCOUNT</div>
-
+  <div>
+    <div class="header-action">ACCOUNT</div>
+  </div>
 </div>
 
