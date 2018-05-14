@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,7 +10,8 @@ export class SidePanelComponent implements OnInit {
 
   constructor(private router: Router) { }
 
-  open : boolean = false;
+  @Input() isOpen : boolean = false;
+  @Output() isOpenChange : EventEmitter<boolean> = new EventEmitter<boolean>(); 
 
   @Input() menuItems : MenuItemsConfig[] = [
     {label: 'Home', action: ()=>{ this.router.navigateByUrl('/') }},
@@ -21,16 +22,12 @@ export class SidePanelComponent implements OnInit {
     ]}
   ];
 
-  expandThing = true;
+  ngOnInit() {  }
 
-  ngOnInit() {
-
-    setTimeout(()=>{
-      this.open = true
-    }, 1000)
-
+  closeSidePanel(){
+    this.isOpen = false
+    this.isOpenChange.emit(this.isOpen)
   }
-
 
 
 

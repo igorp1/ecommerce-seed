@@ -1,6 +1,6 @@
-<div class="side-panel" [class.open]='open'>
+<div class="side-panel" [class.open]='isOpen'>
     <div class='menu-content'>
-        <span class="close-menu" (click)="open = false">&#x2715;</span>
+        <span class="close-menu" (click)="closeSidePanel()">&#x2715;</span>
         <div class="menu-title">
             <h3>Title</h3>
         </div>

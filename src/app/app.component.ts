@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 
 import { defaultWebTitle, defaultWebMetas } from './app.constants';
+import { ContextService } from './services/context.service';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,8 @@ export class AppComponent implements OnInit {
   
   constructor(
     private titleService: Title,
-    private metaService: Meta
+    private metaService: Meta,
+    private _context : ContextService
   ){ }
 
   ngOnInit(){
