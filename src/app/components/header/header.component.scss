@@ -7,8 +7,6 @@ $closed-height : 60px;
 $open-top-margin : $open-height/2 - 10px;
 $closed-top-margin : $closed-height/2 - 10px;
 
-$open-img-height : $open-height/2 + 20px; 
-$closed-img-height : $closed-height;
 
 div.header{
     top:0;
@@ -18,73 +16,79 @@ div.header{
     grid-gap: 1rem;
     position: fixed;
     width: 100vw;
-    box-shadow: $shadow-l;
     transition: $transition;
-    border-bottom: $color-light 2px solid;
-    background-color: $color-offlight;
-    grid-template-columns: [full-start] 1fr [content-start] 1fr [content-end] 1fr[full-end];
+    grid-template-columns: [start] 1fr [middle] 1fr[end];
 
     & div{
-        height: $open-height ;
+        height: $open-height;
         padding: 0 1.5em;
         transition: $transition;
     }
 
-    & div h1{
-        margin-top: -5px;
-        white-space: nowrap;
-        transition: $transition;
-    }
+    & div.logo-container{
 
-    & div img{
-        transition: $transition;
-        height: $open-img-height;
-    }
-
-    & div:nth-child(1){
-        // padding-top: $open-top-margin;
-        & div.header-action{ 
-            padding:0; 
-            margin: .75em 0; 
-            height: 1em; 
-            display: block;
-            text-align: left;
+        & img{
+            transition: $transition;
+            transition-duration: 0.5s;
         }
+
+        & img.open{
+            height: $open-height;
+        }
+
+        & img.closed{
+            width:0;
+        }
+    }
+
+    & div.header-items-container {
         
-        & .action-container{
-            padding:0;
-            margin:0;
-            height: fit-content;
-            transform: translate(0%, 50%);
+        & ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+
+            height: $open-height;
+            transition: $transition;
+            
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            align-items: center;
+            
+            -webkit-flex-flow: row wrap;
+            justify-content: space-around;
+
+            & li{
+                margin: 0 .25em;
+                padding: 5px;
+                
+                text-align: center;
+            }
         }
-    }
-    & div:nth-child(2){
-        text-align: center;
-    }
-    & div:nth-child(3){
-        padding-top: $open-top-margin;
-        & div{ padding:0; }
-        text-align: right;
-    }
+
+    }        
 
     &.closed {
         text-align: left;
         height: $closed-height;
 
+        box-shadow: $shadow-l;
+        border-bottom: $color-light 2px solid;
+        background-color: $color-offlight;
 
-        & div:nth-child(1), div:nth-child(3){
-            padding-top: $closed-top-margin;
-            & .action-container{
-                transform: translate(0,0)
-            }
-            & .header-action{
-                margin: 0 .75em; 
-                display: inline-block;
-            }
-        }
 
-        & div img{
-            height: $closed-img-height;
+        & div.logo-container{
+            & img.open{
+                width: 0;
+                height: 0; 
+            }
+    
+            & img.closed{
+                width: $closed-height;
+            }
         }
 
         & div h1{
@@ -92,18 +96,41 @@ div.header{
             opacity: 0;
             font-size: 0em;
         }
-    }
 
-    & .header-action{
-        cursor: pointer;
-        transition: $transition;
-        display: inline-block;
-        margin:0;
-        margin-left: 1em;
-        padding:0;
-        &:hover{
-            font-weight: bold;
+        & div.header-items-container {
+        
+            & ul {
+                height: $closed-height;
+            }
         }
     }
 
+}
+
+
+@media all and (max-width: 895px) {
+    // FOR SMALL SCREENS =>
+    div.header div.header-items-container ul.header-items{
+        justify-content: flex-end;
+    }
+
+    .hide-in-small-screen{
+        display: none;
+    }
+
+    .show-in-small-screen{
+        display: block;
+    }
+}
+
+@media all and (min-width: 895px) {
+
+    
+    .hide-in-small-screen{
+        display: block;
+    }
+
+    .show-in-small-screen{
+        display: none;
+    }
 }

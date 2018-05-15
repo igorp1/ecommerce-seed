@@ -1,20 +1,16 @@
 <div class="header" [class.closed]="headerCollapsed" >
 
-  <div>
-      <div class="action-container">
-          <div class="header-action" (click)="openMenu()">MENU</div>
-          <div class="header-action" (click)="openMenu()">HELLO</div>
-          <div class="header-action" (click)="openMenu()">YO</div>
-      </div>
+  <div class="logo-container">
+    <img src="{{logo_small}}" class="closed">
+    <img src="{{logo_large}}" class="open">
   </div>
 
-  <div>
-    <img src="{{logo}}">
-    <h1>{{siteTitle}}</h1>
-  </div>
-
-  <div>
-    <div class="header-action">ACCOUNT</div>
+  <div class="header-items-container">
+    <ul class="header-items">
+      <li *ngFor="let m of menuItems" class='hide-in-small-screen'>{{m.label}}</li>
+      <li class='show-in-small-screen' (click)='openMenu()'>MENU</li>
+    </ul>
+    
   </div>
 </div>
 
