@@ -8,7 +8,9 @@ export class ContextService {
   // CONTROL VARIABLES
   sideMenuOpen : boolean = false;
 
-
+  // USABILITY VARS
+  currency : string = 'USD';
+  timezone : string = '';
 
   constructor() { }
 

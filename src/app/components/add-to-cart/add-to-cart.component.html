@@ -1,0 +1,14 @@
+<div>
+
+  <button (click)="minusProductQuantity()" [disabled]="product.canMinusQuantity()" class='minus' [class.hide]="product.quantity === 0">
+    -
+  </button>
+  <span [class.hide]="product.quantity === 0">{{product.quantity}}</span>
+  <button (click)="plusProductQuantity()" [disabled]="product.canPlusQuantity()" [class.hide]="product.quantity === 0">
+    +
+  </button>
+  <button (click)="plusProductQuantity()" [disabled]="product.canPlusQuantity()" class='add-to-cart' [class.hide]="product.quantity !== 0">
+    ADD TO CART
+  </button>
+
+</div>

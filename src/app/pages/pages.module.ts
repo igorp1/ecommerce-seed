@@ -6,6 +6,7 @@ import { ComponentsModule } from '../components/components.module';
 
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
+import { ProductComponent } from './product/product.component';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { AboutComponent } from './about/about.component';
   ],
   declarations: [
     HomeComponent, 
-    AboutComponent,
+    AboutComponent, 
+    ProductComponent,
   ]
 })
 export class PagesModule { }

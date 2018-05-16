@@ -1,0 +1,70 @@
+<div>
+
+  <ng-container [ngSwitch]="productView">
+
+    <!-- SIDE BY SIDE VIEW -->
+    <ng-container *ngSwitchCase="'side-by-side'">
+      <div>
+          <div></div>
+          <div>
+              <h1>{{product.name}}</h1>
+              <image-carousel [images]="product.images"></image-carousel>
+              <h3>{{_context.currency}} ${{product.price | number : '1.2-2' }}</h3>
+              <p>{{product.description}}</p>
+          </div>
+          <div></div>
+        </div>
+    </ng-container>
+
+
+    <!-- STACKED VIEW -->
+    <ng-container *ngSwitchCase="'stacked'">
+      <div class="stacked-container">
+        <div></div>
+        <div class="content-container">
+            <h1>{{product.name}}</h1>
+
+            <div class="image-carousel-container">
+              <image-carousel [images]="product.images" [imgHeight]="'100px'" ></image-carousel>
+            </div>
+
+            <div class="details-cart-container">
+              <div class="details">
+                  <h2>The product</h2>
+                  <p>{{product.description}}</p>
+              </div>
+              <div class="cart">
+                  <ng-container *ngIf="product.salePrice">
+                    <div class="sale-box">
+                      <h2>{{_context.currency}} ${{product.salePrice | number : '1.2-2' }}</h2>
+                      <h3>{{_context.currency}} ${{product.price | number : '1.2-2' }}</h3>
+                    </div>
+                  </ng-container>
+                  <ng-container *ngIf="!product.salePrice">
+                      <h2>{{_context.currency}} ${{product.price | number : '1.2-2' }}</h2>
+                  </ng-container>
+                
+                  <add-to-cart [product]="product"></add-to-cart>
+
+                  <div *ngIf="product.categories && product.categories.length === 1">
+                    Find more in the same {{ product.categories.length === 1? 'category' : 'categories' }}:<br />
+                    <ng-container *ngFor="let category of product.categories">
+                      <a class="category-link" [routerLink]="'/shop/' + category">{{category}}</a>
+                    </ng-container>
+                  </div>
+              </div>
+
+            </div>
+            
+           
+        </div>
+        <div></div>
+      </div>
+    </ng-container>
+  </ng-container>
+
+  
+
+  
+
+</div>

@@ -1,0 +1,49 @@
+@import '../../../styles.scss';
+
+
+div.stacked-container{
+
+    width: 100%;
+    transition: $transition;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: [start] 5vw [middle-left] calc(90vw - 2rem - 16px) [middle-right] 5vw [end];
+
+    & div.content-container{
+        padding: 1em;
+    }
+
+    & h1{
+        margin-bottom: 0em;
+        text-align: center;
+    }
+
+    & a.category-link{
+        margin-right: .8em;
+    }
+
+    & div.details-cart-container{
+        display: grid;
+        grid-gap: 1rem;
+        grid-template-columns: [start] 6fr [middle-left] 4fr [end];    
+    }
+
+    & .image-carousel-container{
+        margin-top: 2em;
+    }
+
+    & .sale-box{
+        & h2{
+            display: inline-block;
+        }
+        & h3{
+            display: inline-block;
+            margin-left: .6em;
+            text-decoration: line-through;
+            color: rgba(0,0,0,0.5);
+        }
+    }
+
+
+
+}

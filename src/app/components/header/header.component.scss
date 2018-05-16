@@ -64,9 +64,21 @@ div.header{
             & li{
                 margin: 0 .25em;
                 padding: 5px;
-                
+                cursor: pointer;
                 text-align: center;
+
+                &:hover{
+                    font-weight: bold;
+                }
+
+                &:active{
+                    font-weight: bold;
+                    color: lighten($color-dark, 20)
+                }
+
             }
+
+            
         }
 
     }        
