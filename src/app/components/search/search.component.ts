@@ -37,7 +37,6 @@ export class SearchComponent implements OnInit {
     this.autoCompleteIndexOnFocus = -1;
     this.autoComplete = [];
     this.currentInput = '';
-    this.openSearch = false;
 
   }
 
@@ -59,6 +58,7 @@ export class SearchComponent implements OnInit {
         break;
       case 'ArrowRight':
         this.submit();
+        break;
       case 'Escape':
         this.resetSearchElement()
     }
@@ -76,17 +76,22 @@ export class SearchComponent implements OnInit {
     this.autoCompleteIndexOnFocus -= 1;
   }
 
-  autocompleteSearch(searchTer : string){
+  autocompleteSearch(searchTerm : string){
     this.autoCompleteIndexOnFocus = -1;
+    if(!searchTerm){ 
+      this.autoComplete = [];
+      return; 
+    }
     this.autoComplete = [
-      {'label': `${this.currentInput}xyz`, id:0},
-      {'label': `${this.currentInput}123`, id:0},
-      {'label': `${this.currentInput}abc`, id:0},
+      {'label': `${searchTerm}xyz`, id:0},
+      {'label': `${searchTerm}123`, id:0},
+      {'label': `${searchTerm}abc`, id:0},
     ]; 
   }
 
   detectBlur(e){
     this.hideAutoComplete = true;
+    this.openSearch = this.currentInput;
   }
 
   detectFocus(e){
