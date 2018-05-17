@@ -18,6 +18,7 @@ $color-light : #FFFFFF;
 $color-dark : #1f1f1f;
 
 $color-offlight : rgb(248, 248, 248);
+$color-offdark : rgba(0,0,0, 0.5);
 
 
 body{
@@ -29,4 +30,43 @@ h1, h2, h3{
     font-family: $special-font;
 }
 
+button{
+    cursor: pointer;
+    padding: .5em 1em;
+    background-color: $color-offlight;
+    border: 1px solid $color-dark;
+    outline: none;
+    border-radius: .15em;
+    transition: $transition;
+    &:hover{
+        background-color: $color-light;
+        box-shadow: $shadow-m;
+    }
+    &:active{
+        box-shadow: $shadow-l;
+    }
+}
 
+
+
+@media all and (max-width: 895px) {
+    // FOR SMALL SCREENS =>
+    .hide-in-small-screen{
+        display: none;
+    }
+
+    .show-in-small-screen{
+        display: block;
+    }
+}
+
+@media all and (min-width: 895px) {
+    // LARGER SCREENS =>
+    .hide-in-small-screen{
+        display: block;
+    }
+
+    .show-in-small-screen{
+        display: none;
+    }
+}

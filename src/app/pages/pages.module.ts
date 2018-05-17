@@ -7,6 +7,7 @@ import { ComponentsModule } from '../components/components.module';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ProductComponent } from './product/product.component';
+import { ShopComponent } from './shop/shop.component';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { ProductComponent } from './product/product.component';
   declarations: [
     HomeComponent, 
     AboutComponent, 
-    ProductComponent,
+    ProductComponent, 
+    ShopComponent,
   ]
 })
 export class PagesModule { }

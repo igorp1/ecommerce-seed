@@ -125,24 +125,5 @@ div.header{
     div.header div.header-items-container ul.header-items{
         justify-content: flex-end;
     }
-
-    .hide-in-small-screen{
-        display: none;
-    }
-
-    .show-in-small-screen{
-        display: block;
-    }
 }
 
-@media all and (min-width: 895px) {
-
-    
-    .hide-in-small-screen{
-        display: block;
-    }
-
-    .show-in-small-screen{
-        display: none;
-    }
-}

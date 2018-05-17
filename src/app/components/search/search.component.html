@@ -1,0 +1,21 @@
+<div>
+    <div class="main-container">
+        <span (click)="startSearching()"  class='show-input' *ngIf="!openSearch">SEARCH</span>
+        <input #input type='text' placeholder='search' [class.hidden]="!openSearch" 
+                (input)="onSearchChange($event)" 
+                [(ngModel)]='currentInput'
+                (keydown)="detectKeys($event)"
+                (blur)="detectBlur($event)"
+                (focus)='detectFocus($event)'
+        />
+    </div>
+    <div class='autocomplete-list' *ngIf="autoComplete && autoComplete.length !== 0 && !hideAutoComplete">
+        <ul>
+            <li *ngFor="let x of autoComplete; let i = index;" 
+                (click)="chooseFromAutoComplete(x)"
+                [class.focused]='autoCompleteIndexOnFocus === i'
+            >{{x.label}}</li>
+        </ul>
+    </div>
+    
+</div>

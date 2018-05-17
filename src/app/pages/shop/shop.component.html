@@ -1,0 +1,37 @@
+<div class='main-container'>
+
+  <div class='title-container'>
+    <div>
+        <h2 class='title'>Shop<span *ngIf="productCategory">{{ ' / ' + productCategory }}</span> </h2>
+    </div>
+    <div class='filter-btn'>
+        <button class="show-in-small-screen">FILTER</button>
+    </div>
+
+  </div>
+
+
+
+  <div class='shop-container'>
+      <div class='control-container'>
+        <h3>FILTER</h3>
+        <div class='controls'>
+            <div><search-input (chosenSearchTerm)="startSearchFromTerm($event)" (chosenValue)="goToProductPage($event)" ></search-input></div>
+            <div style='border: solid 1px goldenrod;'><options-picker></options-picker></div>
+            <div style='border: solid 1px goldenrod;'><range-picker></range-picker></div>
+            <div style='border: solid 1px goldenrod;'><options-picker></options-picker></div>
+        </div>
+
+        
+
+      </div>
+      <div class='products-container'>
+        
+        <div>YO 1</div>
+        <div>YO 2</div>
+        <div>YO 3</div>
+        <div>YO 4</div>
+      </div>
+  </div>
+
+</div>

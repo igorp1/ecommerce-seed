@@ -1,0 +1,44 @@
+@import '../../../styles.scss';
+
+
+input{
+    box-sizing : border-box;
+    width: 100%;
+    border: 0.05em solid $color-offdark;
+    padding: .2em 0.5em;
+    border-radius: .2em;
+    outline: none;
+    transition: $transition;
+    font-family: $regular-font;
+
+    &.hidden{
+        display: none;
+    }
+
+}
+
+span.show-input {
+    cursor: pointer;
+    &:hover{
+        font-weight: bold;
+    }
+}
+
+.autocomplete-list{
+    & ul{
+        margin: 0;
+        padding: 0;
+        list-style: none;    
+        box-shadow: $shadow-l;
+        box-sizing: border-box;    
+        border-radius: 0.1em;
+        margin-top: -0.2em;
+        padding-top: 0.2em;
+        & li{
+            padding: .2em .5em;
+            &.focused{
+                background-color: darken($color-offlight, 10);
+            }
+        }
+    }
+}
