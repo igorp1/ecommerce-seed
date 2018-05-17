@@ -2,7 +2,7 @@
 
   <div class='title-container'>
     <div>
-        <h2 class='title'>Shop<span *ngIf="productCategory">{{ ' / ' + productCategory }}</span> </h2>
+        <h2 class='title'>Shop<span *ngIf="productCategory">{{ ' / ' + productCategory.label }}</span> </h2>
     </div>
     <div class='filter-btn'>
         <button class="show-in-small-screen">FILTER</button>
@@ -16,10 +16,18 @@
       <div class='control-container'>
         <h3>FILTER</h3>
         <div class='controls'>
-            <div><search-input (chosenSearchTerm)="startSearchFromTerm($event)" (chosenValue)="goToProductPage($event)" ></search-input></div>
-            <div style='border: solid 1px goldenrod;'><options-picker></options-picker></div>
-            <div style='border: solid 1px goldenrod;'><range-picker></range-picker></div>
-            <div style='border: solid 1px goldenrod;'><options-picker></options-picker></div>
+            <div>
+              <search-input (chosenSearchTerm)="startSearchFromTerm($event)" (chosenValue)="goToProductPage($event)" ></search-input>
+            </div>
+            <div style='border: solid 1px goldenrod;'>
+              <options-picker [title]='Categories' [options]='categories' (picked)="startSearchFromCategory($event)" ></options-picker>
+            </div>
+            <div style='border: solid 1px goldenrod;'>
+              <range-picker></range-picker>
+            </div>
+            <div style='border: solid 1px goldenrod;'>
+              <options-picker></options-picker>
+            </div>
         </div>
 
         

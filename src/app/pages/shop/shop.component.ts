@@ -8,7 +8,14 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ShopComponent implements OnInit {
 
-  productCategory : string;
+  productCategory : any;
+
+  categories : any[] = [
+    {label:'👋🏾 Hello', slug:'hello'},
+    {label:'💮 Saito Sensei Favorites', slug:'recommended'},
+    {label:'🎉 On Sale', slug:'sale'},
+    {label:'🤑 Under $20', slug:'under-20'},
+  ]
 
   constructor(
     private route : ActivatedRoute,
@@ -17,10 +24,21 @@ export class ShopComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(
       params => {
-        this.productCategory = params['slug'];
-        console.log(`🛒 Shopping category : ${this.productCategory}`)
+        let slugCategory = this.categories.filter( x=>x.slug=== params['slug']);
+        if(slugCategory.length == 0){
+          this.productCategory = {label:'404'}
+        }
+        else{
+          this.productCategory = slugCategory[0]
+        }
+        console.log(`🛒 Shopping category : ${this.productCategory.label}`)
       }
     )
+  }
+
+  // FILTER EVENT HANDLERS =>
+  startSearchFromCategory(category : any){
+    console.log(`🛒 Searching for '${category.label}'`);
   }
 
   startSearchFromTerm(searchTerm : string){

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'options-picker',
@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OptionsPickerComponent implements OnInit {
 
+  @Input() title : string;
+  @Input() options : any[]; // <~~ must have label
+
+  @Output() picked : EventEmitter<any> = new EventEmitter<any>();
+
   constructor() { }
 
   ngOnInit() {
+    setTimeout(()=>{ this.picked.emit({label:"Sato-sensei recommends"}) }, 2000);
+
   }
+
+
 
 }

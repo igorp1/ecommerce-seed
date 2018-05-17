@@ -91,7 +91,7 @@ export class SearchComponent implements OnInit {
 
   detectBlur(e){
     this.hideAutoComplete = true;
-    this.openSearch = this.currentInput;
+    this.openSearch = !!this.currentInput;
   }
 
   detectFocus(e){
