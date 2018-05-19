@@ -13,6 +13,9 @@ import { AddToCartComponent } from './add-to-cart/add-to-cart.component';
 import { SearchComponent } from './search/search.component';
 import { RangePickerComponent } from './range-picker/range-picker.component';
 import { OptionsPickerComponent } from './options-picker/options-picker.component';
+import { LoaderComponent } from './loader/loader.component';
+import { ProductWindowComponent } from './product-window/product-window.component';
+import { ContextMenuComponent } from './context-menu/context-menu.component';
 
 @NgModule({
   imports: [
@@ -30,6 +33,9 @@ import { OptionsPickerComponent } from './options-picker/options-picker.componen
     SearchComponent,
     RangePickerComponent,
     OptionsPickerComponent,
+    LoaderComponent,
+    ProductWindowComponent,
+    ContextMenuComponent,
     
   ],
   exports:[ // TODO: Don't forget to export declared modules
@@ -43,6 +49,9 @@ import { OptionsPickerComponent } from './options-picker/options-picker.componen
     RangePickerComponent,
     SearchComponent,
     OptionsPickerComponent,
+    LoaderComponent,
+    ProductWindowComponent,
+    ContextMenuComponent
   ]
 })
 export class ComponentsModule { }

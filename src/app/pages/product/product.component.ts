@@ -97,7 +97,24 @@ export class ProductComponent implements OnInit {
 
 }
 
-export class Product {
+export interface IProduct{
+  id : string;
+  slug : string;
+
+  name : string;
+  price : number;
+  salePrice? : number;
+  images : Array<string>;
+  description : string;
+  categories : string[];
+
+  quantity : number;
+  quantityLimit? : number;
+  stockQuantity : number;
+}
+
+export class Product implements IProduct {
+
 
   id : string;
   slug : string;
@@ -128,10 +145,6 @@ export class Product {
   minusQuantity(){
     if(this.canMinusQuantity()){ return; }
     this.quantity -= 1;
-  }
-
-  addImageUrls(images :  string[]){
-
   }
 
 }

@@ -1,0 +1,32 @@
+@import '../../../styles.scss';
+
+h3{
+    font-family: $regular-font;
+    margin-bottom: 0em;
+    font-weight: normal;
+}
+
+ul{
+    margin: .5em 0;
+    margin-left: .3em;
+    padding:0;
+    list-style: none;
+
+    & li{
+
+        & label:hover{
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        &.highlight{
+            font-weight: bold;
+        }
+
+    }
+}
+
+input{
+    margin-right: 1em;
+    vertical-align: text-bottom;
+}

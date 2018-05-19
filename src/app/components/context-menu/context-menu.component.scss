@@ -1,0 +1,38 @@
+@import '../../../styles.scss';
+
+div.menu{
+    position:fixed;
+    top: 0;
+    left:0;
+    width: 230px;
+    background-color: white;
+}
+
+.hidden{
+    display: none;
+}
+
+.contextmenu-backdrop{
+    position:fixed;
+    top:0;
+    left:0;
+    height: 100vh;
+    width: 100vw;
+}
+
+ul{
+    padding: 0;
+    list-style: none;
+    margin: 0;
+    border-radius: .1em;
+
+    box-shadow: $shadow-m;
+
+    li{
+        padding: .6em .5em;
+        cursor: pointer;
+        &:hover{
+            background-color: darken($color-offlight, 5); 
+        }
+    }
+}

@@ -1,0 +1,15 @@
+<div class='main-container' (contextmenu)="onRightClick($event)">
+  <div class='img-container' [ngStyle]="{ 'background-image': 'url(' + product.images[0] + ')'}"></div>
+  <h3><span *ngIf="product.salePrice" class='sale-tag' [ngStyle]="{ 'background-color': saleTagColor }">ON SALE</span>{{product.name}}</h3>
+  <div class='price-box'>
+      <ng-container *ngIf="product.salePrice">
+          <div class="sale-box">
+            <span class='price'>{{_context.currency}} ${{product.salePrice | number : '1.2-2' }}</span>
+            <span class='sale-price'>{{_context.currency}} ${{product.price | number : '1.2-2' }}</span>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="!product.salePrice">
+            <span class='price'>{{_context.currency}} ${{product.price | number : '1.2-2' }}</span>
+        </ng-container>
+  </div>
+</div>

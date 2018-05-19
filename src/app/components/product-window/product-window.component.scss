@@ -1,0 +1,50 @@
+@import '../../../styles.scss';
+
+.main-container{
+    padding: .3em;
+    border-radius: .1em;
+    cursor: pointer;
+
+    border: 1px solid $color-offlight;
+
+    &:hover {
+        border: 1px solid $color-dark;
+    }
+}
+
+span.sale-tag{
+    margin-right: .5em;
+    font-size: .4em;
+    vertical-align: middle;
+    background-color: tomato;
+    padding: .2em .4em;
+    color: white;
+    border-radius: .4em;
+}
+
+.img-container{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    box-sizing: border-box;
+    width: 100%;
+    padding-top: 100%;
+    border-radius: .1em;
+}
+
+h3{
+    margin-bottom: .3em;
+}
+
+.sale-box{
+    & span.sale-price{
+        font-size: 0.8em;
+        margin-left: .6em;
+        text-decoration: line-through;
+        color: rgba(0,0,0,0.5);
+    }
+}
+
+.price-box{
+    margin-bottom: 1em; 
+}

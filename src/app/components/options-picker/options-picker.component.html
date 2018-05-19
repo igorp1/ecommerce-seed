@@ -1,1 +1,7 @@
-<span>OPTIONS PICKER</span>
+<h3>{{title}}</h3>
+<ul>
+    <li *ngFor="let x of options; let ii = index" (click)=" singlePick ? singleOptionPicked(x) : '' " [class.highlight]="singlePick && x.selected">
+        <input *ngIf="!singlePick" id="checkBox{{title}}{{ii}}" type="checkbox" [(ngModel)]="x.selected" (change)="optionPicked(x)"> <!-- [(ngModel)]="x.selected" -->
+        <label for="checkBox{{title}}{{ii}}" >{{ singlePick ? "- " : "" }}{{x.label}}</label>
+    </li>
+</ul>

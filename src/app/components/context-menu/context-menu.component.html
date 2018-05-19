@@ -1,0 +1,8 @@
+
+<div [class.hidden]='!show' class='contextmenu-backdrop' (click)="_context.closeContextMenu()" ></div>
+
+<div [class.hidden]='!show' class='menu' #menuDiv>
+    <ul>
+        <li *ngFor="let x of _context.contextMenuActions" (click)="executeAction(x.action)" >{{x.label}}</li>
+    </ul>
+</div>

@@ -19,26 +19,28 @@
             <div>
               <search-input (chosenSearchTerm)="startSearchFromTerm($event)" (chosenValue)="goToProductPage($event)" ></search-input>
             </div>
-            <div style='border: solid 1px goldenrod;'>
-              <options-picker [title]='Categories' [options]='categories' (picked)="startSearchFromCategory($event)" ></options-picker>
-            </div>
+            <hr />
             <div>
-              <range-picker (rangeSelectedEvent)='rangeSelected($event)' ></range-picker>
+              <options-picker title='Categories' [options]='categories' (picked)="startSearchFromCategories($event)" ></options-picker>
             </div>
-            <div style='border: solid 1px goldenrod;'>
-              <options-picker></options-picker>
+            <hr />
+            <div>
+              <range-picker [isCurrency]='true' (rangeSelectedEvent)='startSearchFromPrice($event)' ></range-picker>
+            </div>
+            <hr />
+            <div>
+              <options-picker title='Sort by' [options]='sortOptions' [singlePick]='true' (picked)="pickedSortingOption($event)" ></options-picker>
             </div>
         </div>
 
         
 
       </div>
-      <div class='products-container'>
-        
-        <div>YO 1</div>
-        <div>YO 2</div>
-        <div>YO 3</div>
-        <div>YO 4</div>
+      <div>
+        <loader *ngIf="loadingProducts"></loader>
+        <div class='products-container'>
+          <product-window *ngFor="let p of productList" [product]='p'></product-window>
+        </div>
       </div>
   </div>
 
