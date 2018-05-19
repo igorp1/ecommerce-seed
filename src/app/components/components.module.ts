@@ -30,6 +30,7 @@ import { OptionsPickerComponent } from './options-picker/options-picker.componen
     SearchComponent,
     RangePickerComponent,
     OptionsPickerComponent,
+    
   ],
   exports:[ // TODO: Don't forget to export declared modules
     FormsModule,
@@ -41,7 +42,7 @@ import { OptionsPickerComponent } from './options-picker/options-picker.componen
     AddToCartComponent,
     RangePickerComponent,
     SearchComponent,
-    OptionsPickerComponent
+    OptionsPickerComponent,
   ]
 })
 export class ComponentsModule { }

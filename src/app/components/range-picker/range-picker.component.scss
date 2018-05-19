@@ -1,0 +1,65 @@
+@import '../../../styles.scss';
+
+h3{
+    font-family: $regular-font;
+    margin-bottom: 0em;
+    font-weight: normal;
+}
+
+.range-container, .to-text{
+    display: inline-block;
+    span{
+        display:none;
+    
+        &.currency-picker{
+            display: inline-block;
+            position: absolute;
+            margin-left: 0.25em;
+            margin-top: 0.25em;
+            font-size:0.8em;
+        }
+    }
+}
+
+.to-text{
+    margin: 0 .4em;
+}
+
+.all-controls{
+    padding-left: 0.3em;
+}
+
+.ok-btn{
+    display: inline-block;
+    padding-left: 1em;
+}
+
+input{
+    transition: $transition;
+    width:5em;
+    &.currency-picker{
+        padding-left: 1.3em;
+    }
+    &.warning{
+        border-color:tomato;
+    }
+    &.green{
+        border-color:rgb(25, 193, 98);
+    }
+}
+
+span.warning{
+    font-size: 0.5em;
+    color: tomato;
+}
+
+ul{
+    margin: .5em 0;
+    padding:0;
+    list-style: none;
+
+    & li:hover{
+        font-weight: bold;
+        cursor: pointer;
+    }
+}

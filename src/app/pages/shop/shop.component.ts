@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Range } from '../../components/range-picker/range-picker.component';
 
 @Component({
   selector: 'app-shop',
@@ -12,7 +13,7 @@ export class ShopComponent implements OnInit {
 
   categories : any[] = [
     {label:'👋🏾 Hello', slug:'hello'},
-    {label:'💮 Saito Sensei Favorites', slug:'recommended'},
+    {label:'💮 Sato Sensei Favorites', slug:'recommended'},
     {label:'🎉 On Sale', slug:'sale'},
     {label:'🤑 Under $20', slug:'under-20'},
   ]
@@ -48,5 +49,12 @@ export class ShopComponent implements OnInit {
   goToProductPage(searchObject : any){
     console.log(`🛒 Searching for '${searchObject.label}'`);
   }
+
+  rangeSelected(range : Range){
+    console.log(`🛒 Price range is [${range.min} ${range.max}]`);
+  }
+
+
+
 
 }

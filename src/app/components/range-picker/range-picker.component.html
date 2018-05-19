@@ -1,1 +1,21 @@
-<span>RANGE PICKER</span>
+<h3>{{title}}</h3>
+<div class='all-controls'>
+    <div>
+        <ul>
+            <li *ngFor='let x of suggestedRanges' (click)='rangeChosen(x)' >- From {{ isCurrency ? '$ ' : '' }}{{x.min}} to {{ isCurrency ? '$ ' : '' }}{{x.max}}</li>
+        </ul>
+    </div>
+    <div class='range-container'>
+        <span [class.currency-picker]='isCurrency' >$</span>
+        <input type="text" placeholder="min" [class.green]='valuesOk' [class.warning]='minWarning' [class.currency-picker]='isCurrency'  [(ngModel)]='min' (blur)="inputBlur($event)" (input)='inputChange($event)' />
+    </div>
+    <div class='to-text'>to</div>
+    <div class='range-container'>
+        <span [class.currency-picker]='isCurrency' >$</span>
+        <input type="text" placeholder="max" [class.green]='valuesOk' [class.warning]='maxWarning' [class.currency-picker]='isCurrency' [(ngModel)]='max' (blur)="inputBlur($event)" (input)='inputChange($event)' />
+    </div>
+    <div class='ok-btn'><button (click)='pickCustomRange()'>OK</button></div>
+    <div>
+        <span class='warning'>{{warningMsg}}</span>
+    </div>
+</div>

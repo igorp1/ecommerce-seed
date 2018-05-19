@@ -47,6 +47,15 @@ button{
     }
 }
 
+input{
+    box-sizing : border-box;
+    border: 0.05em solid $color-offdark;
+    padding: .2em 0.5em;
+    border-radius: .2em;
+    outline: none;
+    transition: $transition;
+    font-family: $regular-font;
+}
 
 
 @media all and (max-width: 895px) {

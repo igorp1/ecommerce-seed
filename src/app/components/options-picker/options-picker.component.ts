@@ -16,7 +16,6 @@ export class OptionsPickerComponent implements OnInit {
 
   ngOnInit() {
     setTimeout(()=>{ this.picked.emit({label:"Sato-sensei recommends"}) }, 2000);
-
   }
 
 

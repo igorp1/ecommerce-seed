@@ -22,8 +22,8 @@
             <div style='border: solid 1px goldenrod;'>
               <options-picker [title]='Categories' [options]='categories' (picked)="startSearchFromCategory($event)" ></options-picker>
             </div>
-            <div style='border: solid 1px goldenrod;'>
-              <range-picker></range-picker>
+            <div>
+              <range-picker (rangeSelectedEvent)='rangeSelected($event)' ></range-picker>
             </div>
             <div style='border: solid 1px goldenrod;'>
               <options-picker></options-picker>
