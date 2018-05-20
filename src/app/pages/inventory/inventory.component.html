@@ -1,0 +1,10 @@
+<div class="main-container">
+  <h2>Inventory</h2>
+  <div>
+    <loader></loader>
+    <plus-table [data]="productList" [metadata]="tableMeta" (rowClickedEvent)="rowSelected($event)"></plus-table>
+  </div>
+
+
+
+</div>

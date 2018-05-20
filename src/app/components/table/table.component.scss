@@ -1,0 +1,28 @@
+@import '../../../styles.scss';
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table, th, td {
+    border: 1px solid $color-offlight;
+}
+
+thead > td{
+    text-align: center;
+}
+
+tr > td{
+    padding: .2em
+}
+
+tr:hover{
+    background-color: $color-light;
+    cursor: pointer;
+}
+
+tr:active{
+    background-color: $color-dark;
+    color: $color-light;
+}

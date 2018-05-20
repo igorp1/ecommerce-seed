@@ -1,0 +1,8 @@
+<div class="main-container">
+  <h2>Admin Dashboard</h2>
+
+  <ul>
+    <li *ngFor='let link of quickActions' (click)="link.action()">{{link.label}}</li>
+  </ul>
+
+</div>

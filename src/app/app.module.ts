@@ -22,7 +22,7 @@ import { ComponentsModule } from './components/components.module';
     BrowserTransferStateModule,
     RoutingModule,
     PagesModule,
-    ComponentsModule
+    ComponentsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

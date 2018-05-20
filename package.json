@@ -28,6 +28,7 @@
     "@angular/router": "6.0.0",
     "@nguniversal/express-engine": "^6.0.0",
     "@nguniversal/module-map-ngfactory-loader": "^6.0.0",
+    "angular2-moment": "^1.9.0",
     "core-js": "^2.4.1",
     "ngx-drag-scroll": "^1.7.9",
     "rxjs": "^6.1.0",

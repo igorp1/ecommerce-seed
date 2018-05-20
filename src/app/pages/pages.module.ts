@@ -8,6 +8,8 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ProductComponent } from './product/product.component';
 import { ShopComponent } from './shop/shop.component';
+import { AdminComponent } from './admin/admin.component';
+import { InventoryComponent } from './inventory/inventory.component';
 
 @NgModule({
   imports: [
@@ -19,7 +21,7 @@ import { ShopComponent } from './shop/shop.component';
     HomeComponent, 
     AboutComponent, 
     ProductComponent, 
-    ShopComponent,
+    ShopComponent, AdminComponent, InventoryComponent,
   ]
 })
 export class PagesModule { }

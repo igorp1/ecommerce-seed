@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 import { DragScrollModule } from 'ngx-drag-scroll';
+import { MomentModule } from 'angular2-moment';
 
 import { RoutingModule } from '../app-routing.module';
 import { HeaderComponent } from './header/header.component';
@@ -16,6 +17,7 @@ import { OptionsPickerComponent } from './options-picker/options-picker.componen
 import { LoaderComponent } from './loader/loader.component';
 import { ProductWindowComponent } from './product-window/product-window.component';
 import { ContextMenuComponent } from './context-menu/context-menu.component';
+import { TableComponent } from './table/table.component';
 
 @NgModule({
   imports: [
@@ -23,6 +25,7 @@ import { ContextMenuComponent } from './context-menu/context-menu.component';
     RoutingModule,
     DragScrollModule,
     FormsModule,
+    MomentModule
   ],
   declarations: [
     HeaderComponent,
@@ -36,6 +39,7 @@ import { ContextMenuComponent } from './context-menu/context-menu.component';
     LoaderComponent,
     ProductWindowComponent,
     ContextMenuComponent,
+    TableComponent,
     
   ],
   exports:[ // TODO: Don't forget to export declared modules
@@ -51,7 +55,8 @@ import { ContextMenuComponent } from './context-menu/context-menu.component';
     OptionsPickerComponent,
     LoaderComponent,
     ProductWindowComponent,
-    ContextMenuComponent
+    ContextMenuComponent,
+    TableComponent
   ]
 })
 export class ComponentsModule { }
