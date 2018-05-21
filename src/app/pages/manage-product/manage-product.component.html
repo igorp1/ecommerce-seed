@@ -1,0 +1,82 @@
+<div class="main-container">
+
+  <div class="info">
+    ℹ <br /> 
+    Click on any of the product information fields to edit it. <br />
+    Don't forget to save your changes when you are done.
+  </div>
+
+  <div class="value-display-container">
+    <div>Product Name:</div>
+    <div>
+      <editable-value [(model)]='product.name'></editable-value>
+    </div>
+  </div>
+
+  <div class="value-display-container">
+    <div>Price ({{_context.currency}} $) :</div>
+    <div>
+      <editable-value [(model)]='product.price'></editable-value>
+    </div>
+  </div>
+
+  <div class="value-display-container">
+    <div>Sale Price ({{_context.currency}} $) :</div>
+    <div>
+      <editable-value [(model)]='product.salePrice'></editable-value>
+    </div>
+  </div>
+
+  <div class="value-display-container">
+    <div>Stock Quantity:</div>
+    <div>
+      <editable-value [(model)]='product.stockQuantity'></editable-value>
+    </div>
+  </div>
+
+  <div class="value-display-container">
+    <div>Limit per purchase:</div>
+    <div>
+      <editable-value [(model)]='product.quantityLimit'></editable-value>
+    </div>
+  </div>
+
+  <div class="value-display-container">
+    <div>URL slug:</div>
+    <div>
+      <editable-value [(model)]='product.slug'></editable-value>
+    </div>
+  </div>
+
+  <div class="value-display-container">
+    <div>Product Description:</div>
+    <div>
+      TODO:
+    </div>
+  </div>
+
+
+  <div class="value-display-container">
+    <div>Product Images:</div>
+    <div>
+      TODO:
+    </div>
+  </div>
+
+
+  <div class="value-display-container">
+    <div>Variations:</div>
+    <div>
+      TODO:
+    </div>
+  </div>
+
+
+
+  <div class='save-changes'>
+    <div>
+      <button (click)="saveProductChanges()" >SAVE CHANGES</button>
+    </div>
+  </div>
+
+</div>

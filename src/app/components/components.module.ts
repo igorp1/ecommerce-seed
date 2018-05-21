@@ -18,6 +18,7 @@ import { LoaderComponent } from './loader/loader.component';
 import { ProductWindowComponent } from './product-window/product-window.component';
 import { ContextMenuComponent } from './context-menu/context-menu.component';
 import { TableComponent } from './table/table.component';
+import { EditableValueComponent } from './editable-value/editable-value.component';
 
 @NgModule({
   imports: [
@@ -40,6 +41,7 @@ import { TableComponent } from './table/table.component';
     ProductWindowComponent,
     ContextMenuComponent,
     TableComponent,
+    EditableValueComponent,
     
   ],
   exports:[ // TODO: Don't forget to export declared modules
@@ -56,7 +58,8 @@ import { TableComponent } from './table/table.component';
     LoaderComponent,
     ProductWindowComponent,
     ContextMenuComponent,
-    TableComponent
+    TableComponent,
+    EditableValueComponent
   ]
 })
 export class ComponentsModule { }

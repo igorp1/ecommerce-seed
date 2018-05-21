@@ -1,0 +1,17 @@
+<div class='main-container'>
+  <span class='value-display' *ngIf='!isEditing && model' (click)="startEdit()" >{{model}}</span>
+  <span class='no-value-display' *ngIf='!isEditing && (!model || model==="") ' (click)="startEdit()" >(click to edit)</span>
+  <ng-container *ngIf='isEditing'>
+    <div class="edit-container">
+      <div>
+          <input #input [(ngModel)]="draftModel" /> 
+      </div>
+      <div>
+        <button (click)="doneEdit(true)">OK</button>
+        <button (click)="doneEdit(false)">BACK</button>
+      </div>
+    </div>
+    <span class='input-warning'>{{valueWarn}}</span>
+  </ng-container>
+  
+</div>

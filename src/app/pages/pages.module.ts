@@ -10,6 +10,7 @@ import { ProductComponent } from './product/product.component';
 import { ShopComponent } from './shop/shop.component';
 import { AdminComponent } from './admin/admin.component';
 import { InventoryComponent } from './inventory/inventory.component';
+import { ManageProductComponent } from './manage-product/manage-product.component';
 
 @NgModule({
   imports: [
@@ -21,7 +22,7 @@ import { InventoryComponent } from './inventory/inventory.component';
     HomeComponent, 
     AboutComponent, 
     ProductComponent, 
-    ShopComponent, AdminComponent, InventoryComponent,
+    ShopComponent, AdminComponent, InventoryComponent, ManageProductComponent,
   ]
 })
 export class PagesModule { }

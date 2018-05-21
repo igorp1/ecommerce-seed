@@ -1,0 +1,45 @@
+@import '../../../styles.scss';
+
+.main-container{
+    padding: 1em;
+    margin-bottom: 3em;
+}
+
+.info{
+    text-align: center;
+    font-size: 0.9em;
+    color: $color-offdark;
+    margin-bottom: 2em;
+}
+
+.input-warning{
+    color: tomato;
+    font-size: .8em;
+}
+
+.value-display-container{
+
+    width: 100%;
+    display: grid;
+    grid-gap: 1rem;
+    border: 1px solid $color-offlight;
+    grid-template-columns: [start] 2fr [middle] 10fr [end];
+    
+    div:nth-child(1){
+        padding: .5em .3em;
+    }
+}
+
+.save-changes{    
+    width: 100vw;
+    position: fixed;
+    bottom: 1em;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    & button {
+        color: $color-confirm;
+        border-color: $color-confirm;
+    }
+}

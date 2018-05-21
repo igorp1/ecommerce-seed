@@ -1,0 +1,41 @@
+@import '../../../styles.scss';
+
+.main-container{
+    padding: .5em .3em;
+}
+
+
+
+.value-display{
+    margin:.5em;
+    &:hover{
+        font-weight: bold;
+        cursor: pointer;
+    }
+}
+
+.no-value-display{
+    margin:.5em;
+    color: $color-offdark;
+    font-size:0.9em;
+    &:hover{
+        font-weight: bold;
+        cursor: pointer;
+    }
+}
+
+.edit-container{
+    width: 100%;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: [start] 10fr [middle] 2fr [end];
+
+    button{
+      margin-left: .4em;
+    }
+}
+
+input{
+    font-size: 1em;
+    width: 100%;
+}

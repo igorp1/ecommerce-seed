@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IProduct } from '../product/product.component';
 import { ITableMetadata } from '../../components/table/table.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-inventory',
@@ -19,7 +20,9 @@ export class InventoryComponent implements OnInit {
     ]
   }
 
-  constructor() { }
+  constructor(
+    private router : Router
+  ) { }
 
   ngOnInit() {
     this.loadProducts()
@@ -35,7 +38,7 @@ export class InventoryComponent implements OnInit {
   }
 
   rowSelected(rowObject : IProduct){
-    console.log(`🛒 Select product from inventory : ${rowObject.name}`);
+    this.router.navigateByUrl(`admin/inventory/${rowObject.slug}`);
   }
 
 }

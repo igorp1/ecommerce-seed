@@ -11,7 +11,7 @@ export class OptionsPickerComponent implements OnInit {
   @Input() options : any[]; // <~~ must have label
   @Input() singlePick : boolean;
 
-  @Input() shouldDebounce : boolean = true; // <~~ helps whe pickig multiple options 
+  @Input() shouldDebounce : boolean = false; // <~~ helps whe pickig multiple options 
   @Input() debouncePeriod : number = 1500;
 
   @Output() picked : EventEmitter<any> = new EventEmitter<any>();

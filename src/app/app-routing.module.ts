@@ -7,6 +7,7 @@ import { ProductComponent } from './pages/product/product.component';
 import { ShopComponent } from './pages/shop/shop.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { InventoryComponent } from './pages/inventory/inventory.component';
+import { ManageProductComponent } from './pages/manage-product/manage-product.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'product/:slug', component: ProductComponent }, // <~~ product slug
   { path: 'admin', component: AdminComponent},
   { path: 'admin/inventory', component: InventoryComponent},
+  { path: 'admin/inventory/:slug', component: ManageProductComponent}, // <~~ product slug
   { path: '**', redirectTo : '' }
 ];
 
