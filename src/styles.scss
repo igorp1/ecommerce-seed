@@ -20,7 +20,7 @@ $color-dark : #1f1f1f;
 $color-offlight : rgb(248, 248, 248);
 $color-offdark : rgba(0,0,0, 0.5);
 
-$color-highlight : #ce4343;
+$color-highlight : darken(rgb(248, 248, 248), 10);
 
 $color-confirm : #32cc70;
 $color-error: tomato;
@@ -94,5 +94,25 @@ a{
 
     .show-in-small-screen{
         display: none;
+    }
+}
+
+// ANIMATIONS
+
+@keyframes shake {
+    10%, 90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+    
+    20%, 80% {
+      transform: translate3d(2px, 0, 0);
+    }
+  
+    30%, 50%, 70% {
+      transform: translate3d(-4px, 0, 0);
+    }
+  
+    40%, 60% {
+      transform: translate3d(4px, 0, 0);
     }
 }

@@ -1,3 +1,30 @@
-<p>
-  footer works!
-</p>
+<div class='main-component'>
+  <div class='sections-box'>
+    <div>
+      <ul>
+        <li>Shop</li>
+        <li>About Us</li>
+        <li>FAQ</li>
+        <li>Contact</li>
+      </ul>
+    </div>
+    <div>
+      <ul>
+        <li>Returns</li>
+        <li>Track Order</li>
+        <li>Login/Signup</li>
+        <li></li>
+      </ul>
+    </div>
+    <div class='email-signup'>
+      <h4>Signup for updates</h4>
+      <p *ngIf="signup_text">{{signup_text}}</p>
+      <input *ngIf="!emailSubmitted" placeholder="your email" [(ngModel)]="signupEmail" (ngModelChange)='validationIssue=false' (keyup.enter)="emailSignup()"  [class.warn]='validationIssue'>
+      <h4 *ngIf="emailSubmitted" >Thank you!</h4>
+      <button (click)="emailSignup()">OK!</button>
+    </div>
+  </div>
+  <div class='social-media-links'>
+    <a *ngFor="let link of socialLinks" [href]='link.link' target="_blank" ><img src="assets/social-media-logos/{{link.img}}.svg" /></a>
+  </div>
+</div>

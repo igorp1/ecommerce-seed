@@ -1,0 +1,84 @@
+@import '../../../styles.scss';
+
+.main-component{
+    margin: 3em 2em;
+    border-radius: .1em;
+    padding: 1em 2em;
+    border: 2px solid $color-dark;
+}
+
+.sections-box{
+    display: grid;
+    grid-template-areas: "a b c";
+    grid-gap: 1em;
+
+    div:nth-child(1){
+        grid-area: a;
+    }
+    div:nth-child(2){
+        grid-area: b;
+    }
+    div:nth-child(3){
+        grid-area: c;
+    }
+
+
+    ul{
+        list-style:  none;
+        padding:  0;
+        margin: 0;
+        li{
+            cursor: pointer;
+            margin: 1em 0;
+            &:hover{
+                font-weight: bold;
+            }
+        }
+    }
+
+    .email-signup {
+        text-align: center;
+        
+        input{
+            font-size: 1em;
+            width: 100%;
+            &.warn {
+                border-color: $color-error;  
+                animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+                transform: translate3d(0, 0, 0);
+                backface-visibility: hidden;
+                perspective: 1000px;
+                
+            }
+        }
+
+        p{
+            font-size: .8em;
+            color: lighten($color-dark, 10);
+        }
+
+        button{
+            margin-top: 1em;
+        }
+    }
+}
+
+div.social-media-links{
+    text-align: right;
+    margin-top: 2em;
+    a{
+        margin-left: 1em;
+    }
+    img{
+        height: 1.3em;
+    }
+}
+
+@media all and (max-width: 600px) {
+
+    .sections-box{
+        grid-template-areas: "a b"
+                             "c c";
+    }
+
+}

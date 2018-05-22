@@ -21,3 +21,11 @@ export const homeFactList = [
     {fact:'You always stay in control of your money and we\'ll only charge you for our platform if when are making money.', img:'https://image.flaticon.com/icons/svg/781/781760.svg'},
     
 ]
+
+export const socialMediaLinks = {
+    "twitter" : "https://twitter.com",
+    "medium" : "https://medium.com",
+    "fb" : "https://facebook.com",
+    "ig" : "https://instagram.com",
+    "pinterest" : "https://pinterest.com"
+}

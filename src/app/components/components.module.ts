@@ -64,7 +64,9 @@ import { FooterComponent } from './footer/footer.component';
     ContextMenuComponent,
     TableComponent,
     EditableValueComponent,
-    TextSectionDisplayComponent
+    TextSectionDisplayComponent,
+    FooterComponent,
+    
   ]
 })
 export class ComponentsModule { }
