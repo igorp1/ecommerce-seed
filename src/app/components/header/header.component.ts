@@ -4,6 +4,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { PLATFORM_ID, APP_ID, Inject } from '@angular/core';
 import { ContextService } from '../../services/context.service';
 import { MenuItemsConfig } from '../side-panel/side-panel.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -23,16 +24,15 @@ export class HeaderComponent implements OnInit {
   siteTitle : string = "e-commerce seed";
   
   menuItems : MenuItemsConfig[] = [
-    {label:'ITEM 1'},
-    {label:'ITEM 2'},
-    {label:'ITEM 3'},
-    {label:'ITEM 4'},
-    {label:'ITEM 5'},
+    {label:'ABOUT', action: ()=>{this.router.navigateByUrl('about')} },
+    {label:'SHOP', action: ()=>{this.router.navigateByUrl('shop')} },
+    {label:'ADMIN', action: ()=>{this.router.navigateByUrl('admin')}  },
   ]
 
   constructor(
     @Inject(PLATFORM_ID) private  platformId : Object,
-    private _context : ContextService
+    private _context : ContextService,
+    private router : Router
   ) { 
     this.isBrowser = isPlatformBrowser(platformId);
   }

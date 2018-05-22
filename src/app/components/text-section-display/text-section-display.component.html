@@ -1,0 +1,11 @@
+<div>
+  
+  <h2>{{section.title}}</h2>
+  <p>
+    {{section.text}}
+  </p>
+  <div>
+    <a *ngFor="let x of section.actionLinks; let ii = index" (click)="x.action(ii)" >{{x.label}}</a>
+  </div>
+
+</div>

@@ -1,0 +1,57 @@
+@import '../../../styles.scss';
+
+h1{text-align: center;}
+
+.main-container{
+    margin:0.5em;
+    margin-bottom: 3em;
+    display: grid;
+    grid-gap: 1em;
+    grid-template-columns: [start] 1fr [middle] 4fr [end];
+
+    & div:nth-child(1){
+        border-right: 1px solid darken($color-offlight, 10);
+    }
+
+    ul.flex-items{
+
+        margin: 0;
+        list-style: none;
+
+        padding: 1em;
+
+        display: grid;  
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-gap: 0.5em;
+        
+
+        li{
+            margin-top:.3em;
+            margin-bottom:.3em;
+
+            border: solid 1px rgba(0,0,0,0.1);
+            border-radius: .2em;
+            padding: 0.3em;
+            box-shadow: $shadow-l;
+
+
+            &:hover{
+                font-weight: bold;
+                cursor: pointer;
+                border: solid 1px rgba(0,0,0,0.2);
+            }
+        }
+
+    }
+
+}
+
+
+@media all and (max-width: 895px) {
+    .main-container{
+        grid-template-columns: [start] 1fr [end];
+    }
+    li{
+        text-align: center;
+    }
+}

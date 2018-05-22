@@ -62,6 +62,18 @@ input{
     font-family: $regular-font;
 }
 
+a{
+    color: rgb(17, 137, 242);
+    cursor: pointer;
+    transition: $transition;
+    &:hover{
+        text-decoration: underline;
+    }
+    &:active{
+        font-weight: bold;
+    }
+}
+
 
 @media all and (max-width: 895px) {
     // FOR SMALL SCREENS =>

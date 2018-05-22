@@ -1,2 +1,19 @@
-<h2>About page</h2>
-<modal [config]='modalConfig'></modal>
+
+<h1>{{tagLine}}</h1>
+
+<div class="main-container">
+    <div class="quick-actions">
+        <ul class="flex-items">
+            <li *ngFor="let x of highlightedActions" (click)="x.action()">{{x.label}}</li>
+        </ul>
+    </div>
+    <div>
+        <div *ngFor="let x of sections">
+            <text-section-display [section]='x'></text-section-display>
+        </div>
+    </div>
+
+</div>
+
+
+

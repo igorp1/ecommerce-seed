@@ -1,13 +1,15 @@
 <div class="header" [class.closed]="headerCollapsed" >
 
   <div class="logo-container">
-    <img src="{{logo_small}}" class="closed">
-    <img src="{{logo_large}}" class="open">
+    <a [routerLink]="'/'">
+      <img src="{{logo_small}}" class="closed">
+      <img src="{{logo_large}}" class="open">
+    </a>
   </div>
 
   <div class="header-items-container">
     <ul class="header-items">
-      <li *ngFor="let m of menuItems" class='hide-in-small-screen'>{{m.label}}</li>
+      <li *ngFor="let m of menuItems" class='hide-in-small-screen' (click)="m.action()" >{{m.label}}</li>
       <li class='show-in-small-screen' (click)='openMenu()'>MENU</li>
     </ul>
     

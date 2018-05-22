@@ -13,6 +13,8 @@ export class SidePanelComponent implements OnInit {
   @Input() isOpen : boolean = false;
   @Output() isOpenChange : EventEmitter<boolean> = new EventEmitter<boolean>(); 
 
+  @Input() title : string = "Menu";
+
   @Input() menuItems : MenuItemsConfig[] = [
     {label: 'Home', action: ()=>{ this.router.navigateByUrl('/') }},
     {label: 'About', action: ()=>{ this.router.navigateByUrl('/about') }},
