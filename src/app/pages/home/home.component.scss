@@ -1,0 +1,67 @@
+@import '../../../styles.scss';
+
+.img-banner{
+    width: 100vw;
+    height: 500px;   
+    margin-left: -0.5em;
+    background-image: url(/assets/home-page-banner.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-top: -150px;
+}
+.tag-line{
+    text-align: center;
+    margin-top: -250px;
+    margin-bottom: 280px;
+    text-shadow: $shadow-l;
+    color: $color-dark;
+    h1.hide-in-small-screen{
+        font-size: 2vw;
+    }
+}
+.main-cotainer{
+    margin: 3em 0.5em;
+}
+
+.cards-row-sm{
+    display: grid;  
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    grid-gap: 0.5em;
+    text-align: center;
+}
+.cards-row-lg{
+    display: grid;  
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 0.5em;
+    
+    div.card{
+        padding: 10px;
+        background-color: $color-light;
+        border-radius: 0.1em;
+        box-shadow: $shadow-l;
+        display: flex;
+        flex-wrap: wrap;
+        flex-grow: 1;
+        justify-content: center;
+        & div{
+            text-align: center;
+            width: 100%;
+        }
+        & img{
+            height: 100px;
+        }
+    }
+}
+.call-to-action{
+    text-align: center;    
+    margin-top: 50px;
+    background-color: $color-highlight;
+    width: 100vw;
+    margin-left: -1em;
+    box-shadow: $shadow-l;
+    button{
+        margin: 2em;
+        font-size: 1.5em;
+    }
+}

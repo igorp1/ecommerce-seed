@@ -1,90 +1,22 @@
-<h2>Home page</h2>
+<div class="img-banner" [style.background-image]="bannerImages[0]" ></div>
+<div class="tag-line">
+    <h1 class='hide-in-small-screen'>{{tagLine}}</h1>
+    <h1 class='show-in-small-screen'>{{tagLine}}</h1>
+</div>
+<div class="main-cotainer">
+    <div class="cards-row-lg">
+        <div class='card' *ngFor="let x of factList">
+            <div>
+                <img [src]="x.img" />
+            </div>
+            <div>
+                <p>{{x.fact}}</p>
+            </div>
+        </div>
+    </div>
+    <div class='call-to-action'>
+        <button (click)="stuff()">SHOP NOW</button>
+    </div>
 
 
-<pre>
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-        Lorem ipsum
-</pre>
+</div>

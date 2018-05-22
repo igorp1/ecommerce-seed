@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { TransferState, makeStateKey, Title, Meta } from '@angular/platform-browser';
+import { TransferState, makeStateKey, Title, Meta, DomSanitizer, SafeStyle } from '@angular/platform-browser';
 
-import { defaultWebTitle, defaultWebMetas } from '../../app.constants';
+import { defaultWebTitle, defaultWebMetas, homePageBannerImages, tagLine, homeFactList } from '../../app.constants';
 import { TestMockService } from '../../services/test.mock.service';
 
 // const DATA_NEWS_$ = makeStateKey('data');
@@ -13,14 +13,35 @@ import { TestMockService } from '../../services/test.mock.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(
-    // private titleService: Title,
-    // private metaService: Meta,
-    // private stateTransfer: TransferState,
-    // private _testAPI : TestMockService
-  ) { }
+  bannerImages : SafeStyle[] = new Array<SafeStyle>();
+  tagLine : string = tagLine;
 
-  ngOnInit() {  }
+  factList : Array<any> = homeFactList;
+
+  constructor(private sanitizer : DomSanitizer ) { }
+
+  ngOnInit() {  
+    this.sanitizeBannerImgUrl()
+  }
+
+  sanitizeBannerImgUrl(){
+    homePageBannerImages.map((img)=>{
+      const sanitizedImg = this.sanitizer.bypassSecurityTrustStyle(`url(${img})`);
+      this.bannerImages.push(sanitizedImg);
+    });
+  }
+
+
+}
+
+
+
+// ~~~~~~~~~~~~ SAVING THIS AS REFERENCE FOR NOW, it will be used later on
+
+  // private titleService: Title,
+  // private metaService: Meta,
+  // private stateTransfer: TransferState,
+  // private _testAPI : TestMockService
 
 
   // initState(){
@@ -37,5 +58,3 @@ export class HomeComponent implements OnInit {
   //     }
   //   );
   // }
-
-}

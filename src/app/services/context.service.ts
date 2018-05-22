@@ -1,18 +1,20 @@
 import { Injectable } from '@angular/core';
 
+// Constants
+
 // Interfaces
 import { IProduct } from '../pages/product/product.component';
 
 // Services
 
 
-
-
 @Injectable({
   providedIn: 'root'
 })
 export class ContextService {
-  constructor() { }
+  constructor( ) { }
+
+  // ============== CUSTOMIZATION VARS
 
   // ============== USABILITY VARS
   currency : string = 'USD';
