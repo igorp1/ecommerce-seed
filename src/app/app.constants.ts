@@ -19,7 +19,6 @@ export const homeFactList = [
     {fact:'Customize your site the way you feel it best represents your brand.', img:'https://image.flaticon.com/icons/svg/124/124816.svg'},
     {fact:'Tracking your sales and staying on top of orders and inventory is always a click away', img:'https://image.flaticon.com/icons/svg/743/743007.svg'},
     {fact:'You always stay in control of your money and we\'ll only charge you for our platform if when are making money.', img:'https://image.flaticon.com/icons/svg/781/781760.svg'},
-    
 ]
 
 export const socialMediaLinks = {

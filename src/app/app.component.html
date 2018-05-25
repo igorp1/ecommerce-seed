@@ -9,3 +9,5 @@
 <context-menu [show]='_context.contextMenuOpen' ></context-menu>
 
 <app-footer></app-footer>
+
+<modal [(isOpen)]="_context.modalIsOpen" [config]="_context.modalConfig" (dataEmitter)="_context.modalDataEmitted($event)"></modal>

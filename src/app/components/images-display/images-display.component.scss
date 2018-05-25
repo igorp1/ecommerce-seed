@@ -1,0 +1,44 @@
+@import '../../../styles.scss';
+
+div.big-img{
+    margin-bottom: 1.3em;
+
+    div{
+        width: 100%;
+        padding-top: 100%;
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        box-shadow: $shadow-l;
+        border-radius: .2em;
+        background-color: $color-offlight;
+    }
+}
+
+div.img-thumbnails{
+    display: grid;  
+    grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+    grid-gap: 0.5em;
+
+    & div{
+        cursor: pointer;
+        padding-top: 100%;
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-color: $color-offlight;
+        padding-top: 100%;
+
+        &:hover{
+            transition: $transition;
+            box-shadow: $shadow-h;
+        }
+
+        &.selected{
+            transition: $transition;
+            box-shadow: $shadow-m;
+        }
+
+    }
+}
+

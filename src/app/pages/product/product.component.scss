@@ -1,5 +1,52 @@
 @import '../../../styles.scss';
 
+div.main-container{
+    padding: 1em 4em;
+}
+
+div.side-by-side-container{
+
+    display: grid;
+    grid-gap: 2em;
+    grid-template-areas: "one two";
+    grid-template-columns: [s] 2fr [m] 3fr [e];
+
+    h1{margin-top:0;}
+    
+    div.one{
+        grid-area: one;
+    }
+
+    div.two{
+        grid-area: two;
+    }
+
+    .price-and-cart{
+        display: grid;
+        grid-template-columns: [s] 1fr [m] 1fr [e];
+        grid-gap: 1em;
+        margin-top: 1.3em;
+        
+        & div.cart{
+            padding-top: 1em;
+        }
+
+    }
+
+}
+
+
+@media all and (max-width: 750px) {
+    // FOR SMALL SCREENS =>
+    div.main-container{
+        padding: 1em;
+    }
+    div.side-by-side-container{
+        grid-template-areas: "one" "two";
+        grid-template-columns: [s] 1fr [e];
+    }
+}
+
 
 div.stacked-container{
 

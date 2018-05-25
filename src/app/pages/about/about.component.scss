@@ -9,7 +9,7 @@ h1{text-align: center;}
     grid-gap: 1em;
     grid-template-columns: [start] 1fr [middle] 4fr [end];
 
-    & div:nth-child(1){
+    & div.quick-actions{
         border-right: 1px solid darken($color-offlight, 10);
     }
 
@@ -50,6 +50,9 @@ h1{text-align: center;}
 @media all and (max-width: 895px) {
     .main-container{
         grid-template-columns: [start] 1fr [end];
+        & div.quick-actions{
+            border-right: none;
+        }
     }
     li{
         text-align: center;

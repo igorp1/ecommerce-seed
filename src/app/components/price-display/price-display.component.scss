@@ -1,0 +1,11 @@
+.sale-box{
+    & h2{
+        display: inline-block;
+    }
+    & h3{
+        display: inline-block;
+        margin-left: .6em;
+        text-decoration: line-through;
+        color: rgba(0,0,0,0.5);
+    }
+}

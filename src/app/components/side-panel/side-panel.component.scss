@@ -1,7 +1,16 @@
 @import '../../../styles.scss';
 
-$panel-width : 400px;
+$panel-width : 375px;
 $left-border-weight : 2px;
+
+.side-panel-dropdown{
+    background-color: rgba(0, 0, 0, 0.1);
+    width: 100vw;
+    position:fixed;
+    height: 100vh;
+    top:0;
+    left:0;
+}
 
 .side-panel{
     top: 0;
@@ -11,7 +20,7 @@ $left-border-weight : 2px;
     box-shadow: $shadow-m;
     transition: $transition;
     background-color: $color-offlight;
-    left: -$panel-width - $left-border-weight;
+    left: -$panel-width - $left-border-weight - 5px;
     border-right: solid $color-light $left-border-weight;
 
     & span.close-menu{
@@ -86,6 +95,7 @@ $left-border-weight : 2px;
             }
 
             &.collapsed{
+                margin-top: -8px;
                 font-size:0;
             }
 

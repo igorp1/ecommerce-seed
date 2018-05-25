@@ -10,7 +10,7 @@ export class ModalComponent implements OnInit {
   @Input() isOpen : boolean = true;
   @Output() isOpenChange : EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  @Input() config : ModalComponent;
+  @Input() config : ModalConfig;
 
   @Output() dataEmitter : EventEmitter<any> = new EventEmitter<any>();
 

@@ -4,7 +4,7 @@ button, span{
     transition: $transition;
 }
 
-$font-size : 1.8em;
+$font-size : 1.3em;
 
 button{
 
@@ -18,7 +18,8 @@ button{
     outline: none;
     font-family: $special-font;
 
-    &.add-to-cart{
+    &.add-to-cart{    
+        margin-left: -0.2em;
         padding: .1em .6em;
         padding-top: .2em;
         border-radius: .1em;

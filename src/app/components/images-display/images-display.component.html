@@ -1,0 +1,13 @@
+<div class="main-container">
+
+  <div class="big-img">
+    <div class="img"  [style]="safeImageBAckground[selectedImage]" ></div>
+  </div>
+
+  <div class="img-thumbnails">
+    <ng-container *ngFor="let background of safeImageBAckground; let ii = index">
+      <div [style]="background" (click)="selectedImage = ii" [class.selected]="selectedImage == ii" ></div>
+    </ng-container>
+  </div>
+
+</div>

@@ -31,8 +31,6 @@ export class SidePanelComponent implements OnInit {
     this.isOpenChange.emit(this.isOpen)
   }
 
-
-
 }
 
 export interface MenuItemsConfig{

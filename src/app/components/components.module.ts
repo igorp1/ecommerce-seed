@@ -21,6 +21,9 @@ import { TableComponent } from './table/table.component';
 import { EditableValueComponent } from './editable-value/editable-value.component';
 import { TextSectionDisplayComponent } from './text-section-display/text-section-display.component';
 import { FooterComponent } from './footer/footer.component';
+import { OnFireComponent } from './on-fire/on-fire.component';
+import { PriceDisplayComponent } from './price-display/price-display.component';
+import { ImagesDisplayComponent } from './images-display/images-display.component';
 
 @NgModule({
   imports: [
@@ -46,6 +49,9 @@ import { FooterComponent } from './footer/footer.component';
     EditableValueComponent,
     TextSectionDisplayComponent,
     FooterComponent,
+    OnFireComponent,
+    PriceDisplayComponent,
+    ImagesDisplayComponent,
     
   ],
   exports:[ // TODO: Don't forget to export declared modules
@@ -66,7 +72,9 @@ import { FooterComponent } from './footer/footer.component';
     EditableValueComponent,
     TextSectionDisplayComponent,
     FooterComponent,
-    
+    OnFireComponent,
+    PriceDisplayComponent,
+    ImagesDisplayComponent
   ]
 })
 export class ComponentsModule { }

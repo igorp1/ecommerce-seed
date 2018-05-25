@@ -1,0 +1,9 @@
+<ng-container *ngIf="salePrice">
+  <div class="sale-box">
+    <h2>{{_context.currency}} ${{salePrice | number : '1.2-2' }}</h2>
+    <h3>{{_context.currency}} ${{price | number : '1.2-2' }}</h3>
+  </div>
+</ng-container>
+<ng-container *ngIf="!salePrice">
+    <h2>{{_context.currency}} ${{price | number : '1.2-2' }}</h2>
+</ng-container>

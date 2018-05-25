@@ -1,3 +1,4 @@
+<div *ngIf="isOpen" class="side-panel-dropdown" (click)="closeSidePanel()" ></div>
 <div class="side-panel" [class.open]='isOpen'>
     <div class='menu-content'>
         <span class="close-menu" (click)="closeSidePanel()">&#x2715;</span>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ContextService } from '../../services/context.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { ImageForDisplay } from '../../components/images-display/images-display.component';
 
 @Component({
   selector: 'app-product',
@@ -13,11 +14,10 @@ export class ProductComponent implements OnInit {
   constructor(
     private route : ActivatedRoute,
     private _context : ContextService,
-    private sanitizer: DomSanitizer
   ) { }
 
   product : Product;
-  productView : "side-by-side" | "stacked" = "stacked";
+  productView : "side-by-side" | "stacked" = "side-by-side";
 
 
   ngOnInit() {
@@ -33,63 +33,17 @@ export class ProductComponent implements OnInit {
       this.product.name = 'Natural Buddhist Sandalwood Incense';
       this.product.slug = productSlug;
       this.product.price = 6.99;
-      this.product.description = `
-      Each incense is made from natural wood substrate and essential oil in an artisan community in the south of China.
-      Each incense is made from natural wood substrate and essential oil in an artisan community in the south of China.
-      Each incense is made from natural wood substrate and essential oil in an artisan community in the south of China.
-      Each incense is made from natural wood substrate and essential oil in an artisan community in the south of China.
-      Each incense is made from natural wood substrate and essential oil in an artisan community in the south of China.
-      Each incense is made from natural wood substrate and essential oil in an artisan community in the south of China.
-      Each incense is made from natural wood substrate and essential oil in an artisan community in the south of China.
-      Each incense is made from natural wood substrate and essential oil in an artisan community in the south of China.
-      Each incense is made from natural wood substrate and essential oil in an artisan community in the south of China.
-      Each incense is made from natural wood substrate and essential oil in an artisan community in the south of China.
-      Each incense is made from natural wood substrate and essential oil in an artisan community in the south of China.
-      Each incense is made from natural wood substrate and essential oil in an artisan community in the south of China.
-      Each incense is made from natural wood substrate and essential oil in an artisan community in the south of China.
-      Each incense is made from natural wood substrate and essential oil in an artisan community in the south of China.
-      Each incense is made from natural wood substrate and essential oil in an artisan community in the south of China.
-      Each incense is made from natural wood substrate and essential oil in an artisan community in the south of China.
-      Each incense is made from natural wood substrate and essential oil in an artisan community in the south of China.
-      Each incense is made from natural wood substrate and essential oil in an artisan community in the south of China.
-      Each incense is made from natural wood substrate and essential oil in an artisan community in the south of China.
-      Each incense is made from natural wood substrate and essential oil in an artisan community in the south of China.
-      Each incense is made from natural wood substrate and essential oil in an artisan community in the south of China.
-      Each incense is made from natural wood substrate and essential oil in an artisan community in the south of China.
-      Each incense is made from natural wood substrate and essential oil in an artisan community in the south of China.
-      Each incense is made from natural wood substrate and essential oil in an artisan community in the south of China.
-      Each incense is made from natural wood substrate and essential oil in an artisan community in the south of China.
-      Each incense is made from natural wood substrate and essential oil in an artisan community in the south of China.
-      Each incense is made from natural wood substrate and essential oil in an artisan community in the south of China.
-      Each incense is made from natural wood substrate and essential oil in an artisan community in the south of China.
-      Each incense is made from natural wood substrate and essential oil in an artisan community in the south of China.
-      Each incense is made from natural wood substrate and essential oil in an artisan community in the south of China.
-      Each incense is made from natural wood substrate and essential oil in an artisan community in the south of China.
-      Each incense is made from natural wood substrate and essential oil in an artisan community in the south of China.
-      Each incense is made from natural wood substrate and essential oil in an artisan community in the south of China.
-      Each incense is made from natural wood substrate and essential oil in an artisan community in the south of China.
-      Each incense is made from natural wood substrate and essential oil in an artisan community in the south of China.
-      Each incense is made from natural wood substrate and essential oil in an artisan community in the south of China.
-      Each incense is made from natural wood substrate and essential oil in an artisan community in the south of China.
-      Each incense is made from natural wood substrate and essential oil in an artisan community in the south of China.
-      Each incense is made from natural wood substrate and essential oil in an artisan community in the south of China.
-      Each incense is made from natural wood substrate and essential oil in an artisan community in the south of China.
-      Each incense is made from natural wood substrate and essential oil in an artisan community in the south of China.
-      Each incense is made from natural wood substrate and essential oil in an artisan community in the south of China.
-      Each incense is made from natural wood substrate and essential oil in an artisan community in the south of China.
-      Each incense is made from natural wood substrate and essential oil in an artisan community in the south of China.
-      Each incense is made from natural wood substrate and essential oil in an artisan community in the south of China.
-      `;
-      this.product.categories = [
-        "New", "Under $20"
-      ];
       this.product.salePrice = 4.22;
+      this.product.description = `Each incense is made from natural wood substrate and essential oil in an artisan community in the south of China.`.repeat(20) ;
+      this.product.categories = [ "New", "Under $20" ];
 
-      this.product.images =[
-        "https://static.wixstatic.com/media/f53a9d_71861f907c30416cb25c2a9ee7ca603f~mv2.jpg/v1/fill/w_498,h_267,al_c,q_90/file.jpg",
-        "https://ae01.alicdn.com/kf/HTB1VqUIPVXXXXcGaXXXq6xXFXXXl/Buddhism-Gifts-Fine-Copper-Incense-Buddhist-Solemn-Temple-Decoration-Incense-Burners-for-Consecrate-Buddha-Propitious-Censer.jpg_640x640.jpg",
-        "http://www.japanese-incense.com/subaro.jpg"
+      this.product.images = [
+        {imageUrl:"https://static.wixstatic.com/media/f53a9d_71861f907c30416cb25c2a9ee7ca603f~mv2.jpg/v1/fill/w_498,h_267,al_c,q_90/file.jpg", displayType: 'contain' },
+        {imageUrl:"https://ae01.alicdn.com/kf/HTB1VqUIPVXXXXcGaXXXq6xXFXXXl/Buddhism-Gifts-Fine-Copper-Incense-Buddhist-Solemn-Temple-Decoration-Incense-Burners-for-Consecrate-Buddha-Propitious-Censer.jpg_640x640.jpg", displayType: 'cover' },
+        {imageUrl:"http://www.japanese-incense.com/subaro.jpg", displayType: 'cover' }
       ];
+
+      
       
    });
     
@@ -104,7 +58,7 @@ export interface IProduct{
   name : string;
   price : number;
   salePrice? : number;
-  images : Array<string>;
+  images : Array<ImageForDisplay>;
   description : string;
   categories : string[];
 
@@ -115,14 +69,13 @@ export interface IProduct{
 
 export class Product implements IProduct {
 
-
   id : string;
   slug : string;
 
   name : string;
   price : number;
   salePrice : number;
-  images : Array<string> = new Array<string>();
+  images : Array<ImageForDisplay> = new Array<ImageForDisplay>();
   description : string;
   categories : string[];
 
@@ -146,5 +99,6 @@ export class Product implements IProduct {
     if(this.canMinusQuantity()){ return; }
     this.quantity -= 1;
   }
+
 
 }

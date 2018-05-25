@@ -19,6 +19,7 @@ export class AboutComponent implements OnInit {
     {label:'Examples', action: ()=>{alert('🦖 another dinosaur')} },
     {label:'Start Shopping', action: ()=>{this.router.navigateByUrl('shop')} },
     {label:'FAQ', action: ()=>{this.router.navigateByUrl('home')} },
+    {label:'YO', action: ()=>{alert('yo')} },
   ]
 
   sections : TextSection[] = [
