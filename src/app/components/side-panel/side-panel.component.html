@@ -1,4 +1,4 @@
-<div *ngIf="isOpen" class="side-panel-dropdown" (click)="closeSidePanel()" ></div>
+<div *ngIf="isOpen" class="side-panel-dropdown" (click)="closeSidePanel()"></div>
 <div class="side-panel" [class.open]='isOpen'>
     <div class='menu-content'>
         <span class="close-menu" (click)="closeSidePanel()">&#x2715;</span>
@@ -7,31 +7,27 @@
         </div>
         <ul class="menu-item-list">
             <ng-container *ngFor="let menuItem of menuItems">
-                <li (click)="menuItem.subMenuExpanded = !menuItem.subMenuExpanded; menuItem.action()"  > 
-                    <!-- (click)="menuItem.action()" -->
-                    <span
-                        class="subMenuArrow"
-                        [class.rotate]="menuItem.subMenuExpanded" 
-                        *ngIf="menuItem.subMenu"
-                    >&#x25b6;</span> 
-                    {{menuItem.label}} 
-                    <!-- <span
-                        class="subMenuArrow"
-                        [class.antirotate]="menuItem.subMenuExpanded" 
-                        *ngIf="menuItem.subMenu"
-                    >&#x25c0;</span>  -->
-                </li>
-                <ul class="menu-subitem-list" *ngIf="menuItem.subMenu" [class.collapsed]='!menuItem.subMenuExpanded' >
-                    <li *ngFor="let subMenuItem of menuItem.subMenu"
-                        (click)="subMenuItem.action()"
-                    >
-                        {{subMenuItem.label}}
+                <ng-container *ngIf="menuItem.shouldShow ? menuItem.shouldShow() : true" >
+                    <li (click)="menuItem.subMenuExpanded = !menuItem.subMenuExpanded; menuItem.action()">
+                        <!-- (click)="menuItem.action()" -->
+                        <span class="subMenuArrow" [class.rotate]="menuItem.subMenuExpanded" *ngIf="menuItem.subMenu">&#x25b6;</span>
+                        {{menuItem.label}}
+                        <!-- <span
+                            class="subMenuArrow"
+                            [class.antirotate]="menuItem.subMenuExpanded" 
+                            *ngIf="menuItem.subMenu"
+                        >&#x25c0;</span>  -->
                     </li>
-                </ul>
+                    <ul class="menu-subitem-list" *ngIf="menuItem.subMenu" [class.collapsed]='!menuItem.subMenuExpanded'>
+                        <li *ngFor="let subMenuItem of menuItem.subMenu" (click)="subMenuItem.action()">
+                            {{subMenuItem.label}}
+                        </li>
+                    </ul>
+                </ng-container>
             </ng-container>
         </ul>
         <div class='bottom'>
-            menu footer
+            {{menuFooter}}
         </div>
     </div>
 </div>

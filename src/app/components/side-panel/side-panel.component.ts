@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
+import { MenuItemConfig } from '../../models/menu.models';
 
 @Component({
   selector: 'side-panel',
@@ -13,14 +14,15 @@ export class SidePanelComponent implements OnInit {
   @Input() isOpen : boolean = false;
   @Output() isOpenChange : EventEmitter<boolean> = new EventEmitter<boolean>(); 
 
-  @Input() title : string = "Menu";
+  @Input() title : string;
+  @Input() footer : string;
 
-  @Input() menuItems : MenuItemsConfig[] = [
+  @Input() menuItems : MenuItemConfig[] = [
     {label: 'Home', action: ()=>{ this.router.navigateByUrl('/') }},
     {label: 'About', action: ()=>{ this.router.navigateByUrl('/about') }},
     {label: 'Special', subMenuExpanded:true, subMenu : [
-      {label: 'yo', action:()=>{alert('🦖 yo')} },
-      {label: 'test', action:()=>{alert('🎉 It works!!')} },  
+      {label: 'Dinosaur', action:()=>{alert('🦖 It works!')} },
+      {label: 'Tako', action:()=>{alert('🐙 It works!')} }
     ]}
   ];
 
@@ -33,10 +35,4 @@ export class SidePanelComponent implements OnInit {
 
 }
 
-export interface MenuItemsConfig{
-  label : string,
-  icon? : string,
-  action? : Function,
-  subMenuExpanded? : boolean,
-  subMenu? : MenuItemsConfig[]
-}
+

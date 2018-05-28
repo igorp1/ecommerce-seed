@@ -8,9 +8,13 @@
   </div>
 
   <div class="header-items-container">
+
     <ul class="header-items">
-      <li *ngFor="let m of menuItems" class='hide-in-small-screen' (click)="m.action()" >{{m.label}}</li>
+      <ng-container *ngFor="let m of menuItems">
+        <li *ngIf="m.shouldShow ? m.shouldShow() : true" class='hide-in-small-screen' (click)="m.action()" >{{m.label}}</li>
+      </ng-container>
       <li class='show-in-small-screen' (click)='openMenu()'>MENU</li>
+      <li><icon name='basket'></icon></li>
     </ul>
     
   </div>

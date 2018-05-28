@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Range } from '../../components/range-picker/range-picker.component';
+
 import { IProduct } from '../../models/product.models';
+import { IRange } from '../../models/common.models';
 
 @Component({
   selector: 'app-shop',
@@ -77,7 +78,7 @@ export class ShopComponent implements OnInit {
     })
   }
 
-  startSearchFromPrice(range : Range){
+  startSearchFromPrice(range : IRange){
     console.log(`🛒 Price range is [${range.min} ${range.max}]`);
   }
 

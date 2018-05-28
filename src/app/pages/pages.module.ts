@@ -11,6 +11,8 @@ import { ShopComponent } from './shop/shop.component';
 import { AdminComponent } from './admin/admin.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { ManageProductComponent } from './manage-product/manage-product.component';
+import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   imports: [
@@ -22,7 +24,12 @@ import { ManageProductComponent } from './manage-product/manage-product.componen
     HomeComponent, 
     AboutComponent, 
     ProductComponent, 
-    ShopComponent, AdminComponent, InventoryComponent, ManageProductComponent,
+    ShopComponent,
+    AdminComponent,
+    InventoryComponent,
+    ManageProductComponent,
+    UserDashboardComponent,
+    ErrorComponent,
   ]
 })
 export class PagesModule { }

@@ -1,0 +1,8 @@
+<div class="main-container">
+  <h1>{{errorList[currentError].title}}</h1>
+  <h3>{{errorList[currentError].explanation}}</h3>
+  <div class="actions">
+    <button routerLink="" >BACK HOME</button>
+    <button (click)="reportError()" *ngIf="!issueReported" >REPORT THIS ISSUE</button>
+  </div>
+</div>

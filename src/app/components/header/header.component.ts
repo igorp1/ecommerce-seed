@@ -3,8 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { PLATFORM_ID, APP_ID, Inject } from '@angular/core';
 import { ContextService } from '../../services/context.service';
-import { MenuItemsConfig } from '../side-panel/side-panel.component';
 import { Router } from '@angular/router';
+import { MenuItemConfig } from '../../models/menu.models';
 
 @Component({
   selector: 'app-header',
@@ -23,10 +23,13 @@ export class HeaderComponent implements OnInit {
   logo_large : string = "assets/whitelabel-baner.png";  // aspect ratio : fb banner
   siteTitle : string = "e-commerce seed";
   
-  menuItems : MenuItemsConfig[] = [
+  menuItems : MenuItemConfig[] = [
+    {label:'ADMIN', action: ()=>{this.router.navigateByUrl('admin')}, shouldShow : ()=>false  }, // TODO: check user roles
     {label:'ABOUT', action: ()=>{this.router.navigateByUrl('about')} },
-    {label:'SHOP', action: ()=>{this.router.navigateByUrl('shop')} },
-    {label:'ADMIN', action: ()=>{this.router.navigateByUrl('admin')}  },
+    {label:'SHOP', action: ()=>{this.router.navigateByUrl('shop')}, subMenu: [ // FIXME: add categories here
+      {label:'CATEGORY', action: ()=>{this.router.navigateByUrl('about')} },
+    ]},
+    {label:'PROFILE', action: ()=>{this.router.navigateByUrl('profile')} },
   ]
 
   constructor(

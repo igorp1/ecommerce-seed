@@ -8,6 +8,8 @@ import { ShopComponent } from './pages/shop/shop.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { InventoryComponent } from './pages/inventory/inventory.component';
 import { ManageProductComponent } from './pages/manage-product/manage-product.component';
+import { UserDashboardComponent } from './pages/user-dashboard/user-dashboard.component';
+import { ErrorComponent } from './pages/error/error.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -15,10 +17,13 @@ const routes: Routes = [
   { path: 'shop', component: ShopComponent },
   { path: 'shop/:slug', component: ShopComponent }, // <~~ category slug
   { path: 'product/:slug', component: ProductComponent }, // <~~ product slug
+  { path: 'my-dashboard', component: UserDashboardComponent},
   { path: 'admin', component: AdminComponent},
   { path: 'admin/inventory', component: InventoryComponent},
   { path: 'admin/inventory/:slug', component: ManageProductComponent}, // <~~ product slug
-  { path: '**', redirectTo : '' }
+  { path: 'oops', component: ErrorComponent  },
+  { path: 'oops/:code', component: ErrorComponent  }, // < ~~ error code
+  { path: '**', redirectTo : 'oops/404' }
 ];
 
 @NgModule({

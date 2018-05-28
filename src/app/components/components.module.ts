@@ -22,6 +22,7 @@ import { FooterComponent } from './footer/footer.component';
 import { OnFireComponent } from './on-fire/on-fire.component';
 import { PriceDisplayComponent } from './price-display/price-display.component';
 import { ImagesDisplayComponent } from './images-display/images-display.component';
+import { IconComponent } from './icon/icon.component';
 
 @NgModule({
   imports: [
@@ -48,6 +49,7 @@ import { ImagesDisplayComponent } from './images-display/images-display.componen
     OnFireComponent,
     PriceDisplayComponent,
     ImagesDisplayComponent,
+    IconComponent,
     
   ],
   exports:[ // TODO: Don't forget to export declared modules
@@ -68,7 +70,8 @@ import { ImagesDisplayComponent } from './images-display/images-display.componen
     FooterComponent,
     OnFireComponent,
     PriceDisplayComponent,
-    ImagesDisplayComponent
+    ImagesDisplayComponent,
+    IconComponent
   ]
 })
 export class ComponentsModule { }

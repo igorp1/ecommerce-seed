@@ -7,5 +7,5 @@
       <button *ngIf='config.cancelBtnLabel' (click)='cancelExit()' >{{config.cancelBtnLabel}}</button>
     </div>
   </div>
-  <div class="modal-background"></div>
+  <div class="modal-background" (click)="cancelExit()" ></div>
 </div>

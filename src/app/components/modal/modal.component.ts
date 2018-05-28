@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { ModalConfig } from '../../models/modal.models';
 
 @Component({
   selector: 'modal',
@@ -41,10 +42,3 @@ export class ModalComponent implements OnInit {
 
 }
 
-export interface ModalConfig{
-  message : string,
-  title? : string,
-  cancelBtnLabel? : string,
-  confirmBtnLabel? : string,
-  alignLeft? : boolean
-}
