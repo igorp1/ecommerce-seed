@@ -22,42 +22,6 @@
         </div>
     </ng-container>
 
-    <!-- STACKED VIEW -->
-    <ng-container *ngSwitchCase="'stacked'">
-      <div class="stacked-container">
-        <div></div>
-        <div class="content-container">
-            <h1>{{product.name}}</h1>
-
-            <div class="image-carousel-container">
-              <image-carousel [images]="product.images" [imgHeight]="'100px'" ></image-carousel>
-            </div>
-
-            <div class="details-cart-container">
-              <div class="details">
-                  <h2>The product</h2>
-                  <p>{{product.description}}</p>
-              </div>
-              <div class="cart">
-                <price-display [price]="product.price" [salePrice]="product.salePrice" ></price-display>
-
-                <add-to-cart [product]="product"></add-to-cart>
-
-                <div *ngIf="product.categories && product.categories.length === 1">
-                  Find more in the same {{ product.categories.length === 1? 'category' : 'categories' }}:<br />
-                  <ng-container *ngFor="let category of product.categories">
-                    <a class="category-link" [routerLink]="'/shop/' + category">{{category}}</a>
-                  </ng-container>
-                </div>
-              </div>
-
-            </div>
-            
-           
-        </div>
-        <div></div>
-      </div>
-    </ng-container>
   </ng-container>
 
   

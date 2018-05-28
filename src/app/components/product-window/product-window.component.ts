@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IProduct } from '../../pages/product/product.component';
 import { ContextService } from '../../services/context.service';
+import { IProduct } from '../../models/product.models';
 
 @Component({
   selector: 'product-window',

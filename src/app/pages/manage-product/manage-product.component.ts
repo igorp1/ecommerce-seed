@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ContextService } from '../../services/context.service';
-import { IProduct } from '../product/product.component';
+import { IProduct } from '../../models/product.models';
+
 
 @Component({
   selector: 'app-manage-product',

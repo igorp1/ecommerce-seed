@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { SafeStyle, DomSanitizer } from '@angular/platform-browser';
-import { WSAEDESTADDRREQ } from 'constants';
+import { ImageForDisplay } from '../../models/product.models';
 
 @Component({
   selector: 'images-display',
@@ -25,15 +25,10 @@ export class ImagesDisplayComponent implements OnInit {
 
   constructor(private sanitizer : DomSanitizer) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
 }
 
-export interface ImageForDisplay{
-  imageUrl : string,
-  displayType? : 'cover' | 'contain'
-}
 
 
 

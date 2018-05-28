@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { IRange } from '../../models/common.models';
 
 @Component({
   selector: 'range-picker',
@@ -14,9 +15,9 @@ export class RangePickerComponent implements OnInit {
   @Input() min : string;
   @Input() max : string;
 
-  @Output() rangeSelectedEvent : EventEmitter<Range> = new EventEmitter<Range>();
+  @Output() rangeSelectedEvent : EventEmitter<IRange> = new EventEmitter<IRange>();
 
-  @Input() suggestedRanges : Range[] = [
+  @Input() suggestedRanges : IRange[] = [
     {min:10, max:20},
     {min:30, max:50},
     {min:50, max:100}
@@ -110,7 +111,7 @@ export class RangePickerComponent implements OnInit {
     
   }
 
-  rangeChosen(range : Range){
+  rangeChosen(range : IRange){
     this.rangeSelectedEvent.emit(range);
   }
 
@@ -130,7 +131,3 @@ export class RangePickerComponent implements OnInit {
   
 }
 
-export interface Range {
-  min : number,
-  max : number
-}

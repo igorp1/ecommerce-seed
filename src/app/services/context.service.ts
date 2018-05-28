@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 
 // Constants
 
-// Interfaces
-import { IProduct } from '../pages/product/product.component';
+// Models
+import { Product, IProduct } from '../models/product.models';
 
 // Services
 
@@ -14,7 +14,23 @@ import { IProduct } from '../pages/product/product.component';
 export class ContextService {
   constructor( ) { }
 
-  // ============== CUSTOMIZATION VARS
+  // ============== CONTEXT STATE TRANSFER
+  dataInContext : any = null;
+  sendDataToNextContext(data : any){
+    this.dataInContext = data;
+  }
+  loadDataFromContext(clearContextData : boolean = true){
+    const dataToReturn = this.dataInContext; 
+    this.dataInContext = null;
+    return dataToReturn;
+  }
+  persistData(dataKey : string, data : any){
+    localStorage.setItem(dataKey, JSON.stringify(data));
+  }
+  loadPersistedData(dataKey : string){
+    let retrievedData = localStorage.getItem(dataKey);
+    return JSON.parse(retrievedData);
+  }
 
   // ============== USABILITY VARS
   currency : string = 'USD';
@@ -57,27 +73,57 @@ export class ContextService {
   }
 
   // ============== PRODUCT
-  loadProductFromSlug(slug : string, callBack : (product : IProduct) => void ){
 
-    // ~~~~~~~~~~ FIXME: implement a call to a service
-    let productList : IProduct[] = [
-      {id: '0', slug:'peace-incense', description:'hola', quantity:0, stockQuantity:10, categories:[], name:'Peace Freedom Vitality Sandalwood Incense', images:['https://images.urbanoutfitters.com/is/image/UrbanOutfitters/43797539_070_b?$xlarge$&hei=900&qlt=80&fit=constrain','https://ae01.alicdn.com/kf/HTB1J86UKXXXXXbZXFXXq6xXFXXXK/Purple-Clay-Incense-Burners-One-Of-The-Four-Auspicious-Animals-In-Ancient-China-Burner-Holder-Smoke.jpg_640x640.jpg'], price: 20, salePrice: 15},
-      {id: '0', slug:'sometsuke-bowl', description:'hola', quantity:0, stockQuantity:0, categories:[], name:'Sometsuke Bowl', images:['http://www.japanpotterynet.com/en/upload/save_image/0030276.jpg'], price: 20, salePrice: 15},
-      {id: '0', slug:'gyutou-knife', description:'hola', quantity:0, stockQuantity:10, categories:[], name:'Gyutou Knife', images:['https://www.teruyasu.net/products/pcategorym/deba_s.jpg'], price: 100},
-      {id: '0', slug:'pocky', description:'hola', quantity:0, stockQuantity:10, categories:[], name:'Pocky', images:['https://www.blippo.com/media/catalog/product/cache/4/thumbnail/9df78eab33525d08d6e5fb8d27136e95/2/0/20130315_125_1.jpg'], price: 10},
-    ];
-    // ~~~~~~~~~~~ FIXME: eof
-
-    if(!slug) { callBack(null); }
+  // ~~~~~~~~~~ FIXME: implement call to service
+  loadProductFromSlug(productSlug : string, callBack : (product : Product) => void ){
+    if(!productSlug) { callBack(null); }
     else{
-      let productArr : IProduct[] = productList.filter( x=>x.slug===slug);
-      if(productArr.length === 0){ callBack(null); }
-      else{
-        callBack(productArr[0]);
-      }
+      let product = new Product();
+      product.name = 'Natural Buddhist Sandalwood Incense';
+      product.slug = productSlug;
+      product.price = 6.99;
+      product.salePrice = 4.22;
+      product.description = `Each incense is made from natural wood substrate and essential oil in an artisan community in the south of China.`.repeat(20) ;
+      product.categories = [ "New", "Under $20" ];
+
+      product.images = [
+        {imageUrl:"https://static.wixstatic.com/media/f53a9d_71861f907c30416cb25c2a9ee7ca603f~mv2.jpg/v1/fill/w_498,h_267,al_c,q_90/file.jpg", displayType: 'contain' },
+        {imageUrl:"https://ae01.alicdn.com/kf/HTB1VqUIPVXXXXcGaXXXq6xXFXXXl/Buddhism-Gifts-Fine-Copper-Incense-Buddhist-Solemn-Temple-Decoration-Incense-Burners-for-Consecrate-Buddha-Propitious-Censer.jpg_640x640.jpg", displayType: 'cover' },
+        {imageUrl:"http://www.japanese-incense.com/subaro.jpg", displayType: 'cover' }
+      ];
+      callBack(product);
     }
+  }
+
+  // ~~~~~~~~~~ FIXME: implement call to service
+  loadProductInventory(callBack : (inventory : IProduct[]) => void ){
+    const inventory : IProduct[] = [];
+
+    inventory.push({
+      id : '0',
+      name : 'Natural Buddhist Sandalwood Incense',
+      slug : 'incense',
+      price : 6.99,
+      salePrice : 4.22,
+      quantity : 0,
+      stockQuantity : 100,
+      description : `Each incense is made from natural wood substrate and essential oil in an artisan community in the south of China.`.repeat(20) ,
+      categories : [ "New", "Under $20" ],
+      images : [
+        {imageUrl:"https://static.wixstatic.com/media/f53a9d_71861f907c30416cb25c2a9ee7ca603f~mv2.jpg/v1/fill/w_498,h_267,al_c,q_90/file.jpg", displayType: 'contain' },
+        {imageUrl:"https://ae01.alicdn.com/kf/HTB1VqUIPVXXXXcGaXXXq6xXFXXXl/Buddhism-Gifts-Fine-Copper-Incense-Buddhist-Solemn-Temple-Decoration-Incense-Burners-for-Consecrate-Buddha-Propitious-Censer.jpg_640x640.jpg", displayType: 'cover' },
+        {imageUrl:"http://www.japanese-incense.com/subaro.jpg", displayType: 'cover' }
+      ]
+    }); 
+    
+
+
+    callBack(inventory);
 
   }
+
+
+
 
 }
 
