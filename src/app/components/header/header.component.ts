@@ -27,7 +27,10 @@ export class HeaderComponent implements OnInit {
     {label:'ADMIN', action: ()=>{this.router.navigateByUrl('admin')}, shouldShow : ()=>false  }, // TODO: check user roles
     {label:'ABOUT', action: ()=>{this.router.navigateByUrl('about')} },
     {label:'SHOP', action: ()=>{this.router.navigateByUrl('shop')}, subMenu: [ // FIXME: add categories here
-      {label:'CATEGORY', action: ()=>{this.router.navigateByUrl('about')} },
+      {label:'🎉 On Sale', action: ()=>{this.router.navigateByUrl('/shop/sale')} },
+      {label:'💮 Recommended', action: ()=>{this.router.navigateByUrl('/shop/recommended')} },
+      {label:'🤑 Save Money', action: ()=>{this.router.navigateByUrl('/shop/sale')} },
+
     ]},
     {label:'PROFILE', action: ()=>{this.router.navigateByUrl('profile')} },
   ]
@@ -35,7 +38,7 @@ export class HeaderComponent implements OnInit {
   constructor(
     @Inject(PLATFORM_ID) private  platformId : Object,
     private _context : ContextService,
-    private router : Router
+    private router : Router,
   ) { 
     this.isBrowser = isPlatformBrowser(platformId);
   }

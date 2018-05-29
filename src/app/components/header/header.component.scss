@@ -69,12 +69,53 @@ div.header{
 
                 &:hover{
                     font-weight: bold;
+                    & div.sub-menu{
+                        font-size: 1em;
+                    }
                 }
 
                 &:active{
                     font-weight: bold;
                     color: lighten($color-dark, 20)
                 }
+
+                &.basket-icon p{
+                    display: inline-block;
+                    color: whitesmoke;
+                    background: tomato;
+                    padding: 0.3em;
+                    border-radius: 100%;
+                    width: 10px;
+                    height: 10px;
+                    line-height: 10px;
+                    font-size: 8px;
+                    margin-top: -1em;
+                    margin-left: -0.3em;
+                    position: absolute;
+                    &.tiny{
+                        font-size: 6px; 
+                    }
+                }
+
+                & div.sub-menu{
+                    font-size: 0em;
+                    transition: none;
+                    position: absolute;
+                    padding: 0;
+                    height: fit-content;
+                    background-color: $color-offlight;
+                    margin-top: 0.3em;
+                    border-radius: 0.2em;
+                    & div{
+                        height: fit-content;
+                        margin: 0.5em 0.3em;
+
+                        &:hover{
+                            text-decoration: underline;
+                        }
+                    }
+                }
+
 
             }
 

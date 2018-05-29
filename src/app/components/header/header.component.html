@@ -11,10 +11,18 @@
 
     <ul class="header-items">
       <ng-container *ngFor="let m of menuItems">
-        <li *ngIf="m.shouldShow ? m.shouldShow() : true" class='hide-in-small-screen' (click)="m.action()" >{{m.label}}</li>
+        <li *ngIf="m.shouldShow ? m.shouldShow() : true" class='hide-in-small-screen' (click)="m.action()" >
+          {{m.label}}
+          <div class="sub-menu" *ngIf="m.subMenu" >
+            <div *ngFor="let sub of m.subMenu" (click)="sub.action()" >{{sub.label}}</div>
+          </div>
+        </li>
       </ng-container>
       <li class='show-in-small-screen' (click)='openMenu()'>MENU</li>
-      <li><icon name='basket'></icon></li>
+      <li class="basket-icon">
+        <icon name='basket'></icon>
+        <p *ngIf="_context.cartItemsCount() > 0" [class.tiny]='_context.cartItemsCount() > 99'>{{_context.cartItemsCount()}}</p> 
+      </li>
     </ul>
     
   </div>

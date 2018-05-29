@@ -160,6 +160,11 @@ export class ContextService {
 
   }
 
+  // ============== CART
+  cartItemsCount() : number{
+    return this.cartService.products.length;
+  }
+
 
 
 

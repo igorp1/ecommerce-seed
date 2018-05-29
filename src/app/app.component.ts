@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
   }
 
   setTitle(){
-    this.titleService.setTitle(`${defaultWebTitle} - Home`);
+    this.titleService.setTitle(`${defaultWebTitle}`);
   }
 
   addMetas(){
