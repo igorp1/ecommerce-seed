@@ -59,4 +59,9 @@ export class HeaderComponent implements OnInit {
     this._context.toggleMenu(true)
   }
 
+  executeAction(action : ()=>void ){
+    action();
+    return false; // prevent click to propagate
+  }
+
 }

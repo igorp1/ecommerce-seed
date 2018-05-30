@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 
 import { IProduct } from '../../models/product.models';
 import { IRange } from '../../models/common.models';
+import { ContextService } from '../../services/context.service';
+import { IShopCategory } from '../../models/shop.models';
 
 @Component({
   selector: 'app-shop',
@@ -11,56 +13,53 @@ import { IRange } from '../../models/common.models';
 })
 export class ShopComponent implements OnInit {
 
-  productCategory : any;
-
-  categories : any[] = [
-    {label:'👋🏾 Hello', slug:'hello'},
-    {label:'💮 Sato Sensei Favorites', slug:'recommended'},
-    {label:'🎉 On Sale', slug:'sale'},
-    {label:'🤑 Under $20', slug:'under-20'},
-  ]
-
   sortOptions : any[] = [
     {label:'Lowest prices first'},
     {label:'Highest prices first'},
     {label:'Newest first'},
     {label:'Most popular first'}
-  ]
+  ];
 
-  loadingProducts : boolean = false;
 
-  // productList : IProduct[] = [
-  //   {id: '0', slug:'peace-incense', description:'hola', quantity:0, stockQuantity:10, categories:[], name:'Peace Freedom Vitality Sandalwood Incense', images:['https://images.urbanoutfitters.com/is/image/UrbanOutfitters/43797539_070_b?$xlarge$&hei=900&qlt=80&fit=constrain'], price: 20, salePrice: 15},
-  //   {id: '0', slug:'sometsuke-bowl', description:'hola', quantity:0, stockQuantity:0, categories:[], name:'Sometsuke Bowl', images:['http://www.japanpotterynet.com/en/upload/save_image/0030276.jpg'], price: 20, salePrice: 15},
-  //   {id: '0', slug:'gyutou-knife', description:'hola', quantity:0, stockQuantity:10, categories:this.categories, name:'Gyutou Knife', images:['https://www.teruyasu.net/products/pcategorym/deba_s.jpg'], price: 100},
-  //   {id: '0', slug:'pocky', description:'hola', quantity:0, stockQuantity:10, categories:[], name:'Pocky', images:['https://www.blippo.com/media/catalog/product/cache/4/thumbnail/9df78eab33525d08d6e5fb8d27136e95/2/0/20130315_125_1.jpg'], price: 10},
-  // ]
+  productCategory : IShopCategory;
+  categories : IShopCategory[] = null;
+
+  productList : IProduct[]; 
 
 
   constructor(
     private route : ActivatedRoute,
+    private _context : ContextService
   ) { }
 
   ngOnInit() {
+    this.loadProducts();
+    this.loadCategories();
+    this.selectCurrentPageCategory();
+  }
+
+  // SETUP
+  loadProducts(){
+    this._context.getShopProducts((products)=>this.productList=products);
+  }
+
+  loadCategories(){
+    this._context.getShopCategories((categories)=>this.categories = categories);
+  }
+
+  selectCurrentPageCategory(){
     this.route.params.subscribe(
       params => {
         if(!params['slug']) return;
-        let slugCategory = this.categories.filter( x=>{
-          if(x.slug === params['slug']) {
-            x.selected = true; 
-            return x;
-          }
+        this._context.getShopCategoryFromSlug(params['slug'], (category : IShopCategory) => {
+          this.productCategory = category;
+          console.log(`🛒 Shopping category : ${this.productCategory.label}`);
         });
-        if(slugCategory.length == 0){
-          this.productCategory = {label:'404'}
-        }
-        else{
-          this.productCategory = slugCategory[0]
-        }
-        console.log(`🛒 Shopping category : ${this.productCategory.label}`)
       }
-    )
+    );
   }
+
+
 
   // FILTER EVENT HANDLERS =>
   startSearchFromTerm(searchTerm : string){
@@ -72,7 +71,6 @@ export class ShopComponent implements OnInit {
   }
   
   startSearchFromCategories(categories : any[]){
-    this.loadingProducts = true;
     categories.map(category =>{
       console.log(`🛒 Categories picked : '${category.label}'`);
     })

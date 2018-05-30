@@ -11,10 +11,10 @@
 
     <ul class="header-items">
       <ng-container *ngFor="let m of menuItems">
-        <li *ngIf="m.shouldShow ? m.shouldShow() : true" class='hide-in-small-screen' (click)="m.action()" >
-          {{m.label}}
+        <li *ngIf="m.shouldShow ? m.shouldShow() : true" class='hide-in-small-screen' >
+          <span (click)="executeAction(m.action)">{{m.label}}</span>
           <div class="sub-menu" *ngIf="m.subMenu" >
-            <div *ngFor="let sub of m.subMenu" (click)="sub.action()" >{{sub.label}}</div>
+            <div *ngFor="let sub of m.subMenu" (click)="executeAction(sub.action)" >{{sub.label}}</div>
           </div>
         </li>
       </ng-container>

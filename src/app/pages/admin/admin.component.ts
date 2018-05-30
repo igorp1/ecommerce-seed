@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { IContextMenuAction } from '../../services/context.service';
 import { Router } from '@angular/router';
+import { IContextMenuAction } from '../../models/contextmenu.models';
 
 @Component({
   selector: 'app-admin',

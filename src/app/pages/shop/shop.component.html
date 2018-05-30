@@ -37,7 +37,7 @@
 
       </div>
       <div>
-        <loader *ngIf="loadingProducts"></loader>
+        <loader *ngIf="productList === undefined"></loader>
         <div class='products-container'>
           <product-window *ngFor="let p of productList" [product]='p'></product-window>
         </div>

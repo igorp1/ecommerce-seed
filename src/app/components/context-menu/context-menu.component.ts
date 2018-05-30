@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, ElementRef, ViewChild } from '@angular/core';
-import { IContextMenuAction, IContextMenuPosition, ContextService } from '../../services/context.service';
+import { ContextService } from '../../services/context.service';
+import { IContextMenuAction } from '../../models/contextmenu.models';
 
 @Component({
   selector: 'context-menu',

@@ -28,7 +28,7 @@ export class ProductComponent implements OnInit {
   loadProduct(){
     this.loadingProduct = true;
     this.route.params.subscribe(params => {
-      this._context.loadProductFromSlug(params['slug'], (product)=>{
+      this._context.getProductFromSlug(params['slug'], (product)=>{
         this.product = product;
         this.loadingProduct = false;
       });

@@ -32,7 +32,7 @@ export class InventoryComponent implements OnInit {
 
   loadProducts(){
     this.productList = [];
-    this._context.loadProductInventory((inventory) => {
+    this._context.getProductInventory((inventory) => {
       this.productList = inventory;
     })
   }

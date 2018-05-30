@@ -22,7 +22,7 @@ export class ManageProductComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this._context.loadProductFromSlug(params['slug'],(product)=>{
+      this._context.getProductFromSlug(params['slug'],(product)=>{
         this.product = product;
         this.originalProductCopy = product;
       });
