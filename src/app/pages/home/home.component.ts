@@ -18,10 +18,14 @@ export class HomeComponent implements OnInit {
 
   factList : Array<any> = homeFactList;
 
-  constructor(private sanitizer : DomSanitizer ) { }
+  constructor(
+    private sanitizer : DomSanitizer,
+    private mockService : TestMockService
+  ) { }
 
   ngOnInit() {  
     this.sanitizeBannerImgUrl()
+    this.runTests();
   }
 
   sanitizeBannerImgUrl(){
@@ -29,6 +33,13 @@ export class HomeComponent implements OnInit {
       const sanitizedImg = this.sanitizer.bypassSecurityTrustStyle(`url(${img})`);
       this.bannerImages.push(sanitizedImg);
     });
+  }
+
+  runTests(){
+    // this.mockService.getHelloWorld(alert);
+    this.mockService.testEcho({hello:"world"}, console.log);
+
+
   }
 
 
